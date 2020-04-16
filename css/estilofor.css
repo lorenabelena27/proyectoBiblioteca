@@ -1,0 +1,58 @@
+div#prueba {
+	margin: auto;
+	backdrop-filter: blur(3px);
+	padding: 5%;
+	font-size: 1.2em;
+
+}
+
+div#prueba > form {
+	width: 100%;
+
+}
+
+div#prueba > form > label {
+	width: 25%;
+}
+
+div#prueba >  form > input {
+	color: black;
+}
+
+div#prueba >  form > input#id_enviar {
+	float: right;
+	margin-right: 11%;
+}
+
+input{
+    color: black;
+}
+.error {
+	display: block;
+	position: relative;
+	z-index: 1;
+	padding: 15px 5px 5px 5px;
+	border-radius: 10px;
+	color: white;
+	width: 200px;
+	text-align: center; 
+	font-size: 12px;
+	background: RGB(194, 46, 79);
+	margin: auto;
+	margin-bottom:10px;
+}
+
+.error::after {
+    content: '';
+    border-bottom: 15px solid RGB(194, 46, 79);
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    position: absolute;
+    left: 45%;
+    top: -14px;
+	
+}
+
+.ocultar {
+	display: none;
+}
