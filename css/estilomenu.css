@@ -1,27 +1,29 @@
 .flex_nav {
-		flex-direction:row;
-		flex-wrap: wrap;
+	flex-direction:row;
+	flex-wrap: wrap;
 	}
-	.flex-nav h1 {
-		float: left;
-		height: 57px;
-		padding-left: 5px;
-		padding-top: 10px;
-		font-family: helvetic;
-	}
-	.flex-nav ul {
-		font-size: 0.9em;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		flex-direction: row;
-	}
-	.flex-nav li {
-		flex: 1;
-	}
-	
-	.flex-nav > ul > li{
+.flex-nav h1 {
+	float: left;
+	height: 57px;
+	padding-left: 5px;
+	padding-top: 10px;
+	font-family: helvetic;
+}
+.flex-nav ul {
+	display: block;
+	font-size: 0.9em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	position: sticky;
+	top: 0;
+}
+.flex-nav li.prog {
+	flex-basis: 30%;
+}
+.flex-nav > ul > li.prog{
 	color:white;
 	font-weight: 100;
 	letter-spacing: 0.7px;
@@ -32,11 +34,16 @@
 	width: 100%;
 	text-align: center;
 	transition:all 0.5s;
-	}
+}
 	
-	.flex-nav > ul > li > a{
+.flex-nav > ul > li.prog > a{
 	color:white;
 	text-decoration: none;
+}
+
+.flex-nav > ul > li.prog > a > div, .flex-nav > ul > li > div {
+	height: 100%;
+	width: 100%;
 }
 
 .flex-nav > ul > li:hover {
@@ -45,4 +52,22 @@
 }
 .flex-nav > ul > li > input {
 	color:black;
+}
+
+#error_busq {
+	color: white;
+}
+
+.flex-nav > ul > li {
+	background:rgba(0,0,0,0.4);
+	padding:20px;
+}
+
+nav.flex-nav > ul > li.toggleNav#btn-filtrar {
+	font-size: 40px;
+	cursor: pointer;
+	flex-basis: 10%;
+}
+nav.flex-nav > ul > li.toggleNav#btn-filtrar:hover {
+	color: black;
 }

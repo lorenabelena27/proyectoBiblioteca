@@ -72,6 +72,12 @@ function alta($nombre,$apellidos,$dni,$email,$fecha,$pas){
 				}else{
 					
 					$query->execute();
+					if($query->rowCount()>0){
+						echo json_encode("Usuario registrado");
+					}else{
+						echo json_encode("Error al registrar");
+					}
+					
 				}
 			}else{
 				echo json_encode("El usuario ya existe");	

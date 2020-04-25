@@ -1,10 +1,15 @@
 
    <nav class="flex-nav">
       <ul>
-        <li><a href="index.php"><h4>Inicio</h4></a></li>
-		<li><a href="index.php?listarLibros"><h4>Listar Libros</h4></a></li>
-        <li><a href="index.php?reserva"><h4>Libros Reservados</h4></a></li>
-		<li><input type="text" id="id_libro" name="email"/> <input type="button" name="buscar" id="id_buscar"value="Buscar"/></li>
+       <?php if($_SERVER['QUERY_STRING'] == "listarLibros") echo "<li id=\"btn-filtrar\" class=\"toggleNav\">☰</li>"; ?>
+	   
+        <li class="prog"><a href="index.php"><div><h4>Inicio</h4></div></a></li>
+		<li class="prog"><a href="index.php?listarLibros"><div><h4>Listar Libros</h4></div></a></li>
+        <li class="prog"><a href="index.php?reserva"><div><h4>Libros Reservados</h4></div></a></li>
+		<li class="prog"><input type="text" id="id_libro" name="email" value=" "/> <input type="button" name="buscar" id="id_buscar"value="Buscar"/>
+			<br><span id="error_busq"></span>
+		</li>
       </ul>
     </nav>
+	
 	

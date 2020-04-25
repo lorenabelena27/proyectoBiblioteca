@@ -69,7 +69,7 @@ if(empty($pass)){
 	array_push($respuesta,"Las contraseñas no coinciden");
 	$error=true;
 }
-if(empty($respuesta)){
+if($error==false){
 	
 	alta($nombre,$apellidos,$dni,$email,$fecha_na,$pas);
 	

@@ -1,5 +1,4 @@
 
-
 <div id="prueba">
 <form action="<?php echo $_SERVER['PHP_SELF'];?> method="POST">
 	<label  for="id_nombre" >Nombre: </label>
@@ -30,8 +29,8 @@
 	</div>
 	<label for="id_pass">Contraseña: </label>
 	<input type="password" name="pass"  id="id_pass"/><br><br> 
-	<div id="div_error_pass"class="">
-		<p id="error_pass"></p>
+	<div id="div_error_pass"class="error">
+		<p id="error_pass">La contraseña debe tener al menos 8 caracteres , un dígito, minúsculas y al menos una mayúscula.</p>
 	</div>
 	<label for="id_confir">Confirmar contraseña: </label>
 	<input type="password" name="confir"  id="id_confir"/><br><br> 

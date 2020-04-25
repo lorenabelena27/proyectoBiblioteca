@@ -147,7 +147,7 @@ function peticionAlta(){
 		error="Debes introducir una Contraseña";
 		document.getElementById("div_error_pass").className ="error";
 		document.getElementById("div_error_pass").style.diplay="block";
-		p5.innerHTML=error;
+		//p5.innerHTML=error;
 	}else if(validaPass(contrasena)==false){
 		error="La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.";
 		document.getElementById("div_error_pass").className ="error";
@@ -189,9 +189,9 @@ function peticionAlta(){
 }	
 function gestionarAlta(evento){
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
-			alert(evento.target.responseText);
+			
 			respuesta = JSON.parse(evento.target.responseText);
-			if(respuesta!="El usuario ya existe"){
+			if(respuesta=="Usuario registrado"){
 				respuestaAlta(respuesta);
 			}else{
 				alert(respuesta);

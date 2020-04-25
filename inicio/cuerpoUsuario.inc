@@ -1,5 +1,6 @@
+ <div id= "inicio">
  <section class="wrapper2">
-	  <div 
+	  <div> </div>
      
     </section>
       <section class="posts">
@@ -55,5 +56,4 @@
 		</div>
 	  </div> 
     </section>
-	
-
+</div>

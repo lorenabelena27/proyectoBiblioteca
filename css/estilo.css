@@ -92,6 +92,13 @@ padding: 5%;
 	
 }
 
+.bloque0 > div.formulario > form {
+	padding-top: 3.5%;
+	flex-basis: 100%;
+	width: 100%;
+	
+}
+
 .bloque2 > div {
 	flex-basis: 60%;
 	color: white;
@@ -177,3 +184,7 @@ nav.redes > ul > li.redes_sociales{
 	float: left;
 	margin-right: 3%;
 } */
+
+.oculto {
+	display: none;
+}

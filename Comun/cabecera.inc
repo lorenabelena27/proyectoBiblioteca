@@ -18,7 +18,7 @@
 	<?php }else{
 			?> <div class="formulario"> 
 			<h2>	<?php echo "Bienvenido ".$_SESSION['usuario'] ;?></h2>
-				<a href="index.php?cerrar"> Cerrar sesión</a>
+				<span><span> </span><a href="index.php?cerrar"> Cerrar sesión</a></span>
 			</div>
 			<?php }?>
     </div>

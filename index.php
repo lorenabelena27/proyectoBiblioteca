@@ -16,10 +16,11 @@ if(isset($_SESSION['usuario'])){
 	}elseif ($_SERVER['QUERY_STRING'] == "listarLibros") {
 		include "programas/listar_libros/listar_libros.inc";
 	}elseif ($_SERVER['QUERY_STRING'] == "reserva") {
-		
+
 	}else{
 		include "Inicio/cuerpoUsuario.inc";
 	}
+	include "Comun/busqueda.inc";
 }else{
 	if (!$_SERVER['QUERY_STRING']) {
 		include "Inicio/cuerpo.inc";
