@@ -21,12 +21,12 @@ function cargarPaginacion(){
 }
 
 function listarLibros(){
-		var peticion=new XMLHttpRequest();
-		peticion.addEventListener("readystatechange",gestionarListado,false);
-		peticion.open("POST","programas/listar_libros/php/listar_libros.php",false);
-		peticion.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-		var datos = "x= ";
-		peticion.send(datos);
+	var peticion=new XMLHttpRequest();
+	peticion.addEventListener("readystatechange",gestionarListado,false);
+	peticion.open("POST","programas/listar_libros/php/listar_libros.php",false);
+	peticion.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	var datos = "x= ";
+	peticion.send(datos);
 }
 function gestionarListado(evento){
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
@@ -160,7 +160,7 @@ function fichaTecnica(){
 }
 
 function mostrarFT(){
-
+	document.getElementById("estadoLibro").style.display="none";
 	var ruta = this.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
 	var titulo=this.parentNode.firstChild.innerHTML;
 	var autor=this.parentNode.firstChild.nextSibling.innerHTML;
@@ -181,6 +181,7 @@ function mostrarFT(){
 	document.getElementById("ficha").innerHTML="<h3>Ficha Técnica</h3><p>Autor: "+autor+"</p><p>Género: "+genero+"</p><p>Año: "+año+"</p><p>Idioma: "+idioma+"</p><p>Editorial: "+editorial+"</p><p>ISBN :<span id=\"codigo\">"+codigo+"</span></p>";
 	document.getElementById("volver").style.display="block";
 	document.getElementById("volverB").style.display="none";
+	document.getElementById("volverI").style.display="none";
 	
 }
 

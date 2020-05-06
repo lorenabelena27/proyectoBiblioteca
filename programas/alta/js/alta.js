@@ -1,21 +1,24 @@
 document.addEventListener("readystatechange",cargarEvento,false);
 
 function cargarEvento(){
+	
 	if(document.readyState=="interactive"){
 		document.getElementById("id_enviar").addEventListener("click",peticionAlta,false);
 	}
 }
 function validaDni(dni){
+	
 	var patronDNI=/^[0-9]{8}[A-Za-z]$/;
 	var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+	var letrasMin = ['t', 'r', 'w', 'a', 'g', 'm', 'y', 'f', 'p', 'd', 'x', 'b', 'n', 'j', 'z', 's', 'q', 'v', 'h', 'l', 'c', 'k', 'e', 't'];
 	if(patronDNI.test(dni)==false){	
 		return false;
 	}else{
 		var letraDNI = dni.substring(8, 9).toUpperCase();
 		var numDNI = parseInt(dni.substring(0, 8));
 		var letraCorrecta = letras[numDNI % 23];
-	
-			if(letraDNI!= letraCorrecta){
+		var letraCorrectaM = letrasMin[numDNI % 23];
+			if(letraDNI!= letraCorrecta && letraDNI!= letraCorrectaM ){
 				return "no es valido";	
 			} else{
 				return true;
@@ -23,7 +26,8 @@ function validaDni(dni){
 	}
 }
 function validaEmail(email){
-	var patronEmail=/^([a-zA-Z])+([\w\._])*([A-Za-z])+@/;
+	
+	var patronEmail=/^([a-zA-Z])+([\w\._])*([A-Za-z])*([0-9])*@/;
 	var dominios =["gmail.com","hotmail.com","yahoo.es","yahoo.com"];
 
 	if (patronEmail.test(email)==false){
@@ -39,6 +43,7 @@ function validaEmail(email){
 	}
 }
 function validaFecha(fecha){
+	
 	var fechaN=new Date(fecha);
 	var hoy=new Date();
 	if(fechaN.getTime()>hoy.getTime()){
@@ -47,12 +52,14 @@ function validaFecha(fecha){
 }
 
 function validaPass(contrasena){
+	
 	var patronPass=/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
 	if(patronPass.test(contrasena)==false){
 		return false;
 	}
 }
 function peticionAlta(){
+	
 	var error;
 	var todoBien=false;
 	var nombre=document.getElementById("id_nombre").value;
@@ -147,7 +154,6 @@ function peticionAlta(){
 		error="Debes introducir una Contraseña";
 		document.getElementById("div_error_pass").className ="error";
 		document.getElementById("div_error_pass").style.diplay="block";
-		//p5.innerHTML=error;
 	}else if(validaPass(contrasena)==false){
 		error="La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.";
 		document.getElementById("div_error_pass").className ="error";
@@ -188,6 +194,7 @@ function peticionAlta(){
 	}	
 }	
 function gestionarAlta(evento){
+	
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
 			
 			respuesta = JSON.parse(evento.target.responseText);
@@ -199,8 +206,10 @@ function gestionarAlta(evento){
         }
 }	
 function respuestaAlta(respuesta){
-	alert("Usuario dado de alta");	
-	window.location="index.php";
-
+	alert(respuesta);
+	var email=document.getElementById("id_email").value;
+	document.getElementById("formuAlta").innerHTML="<h2>Registrado con éxito</h2><h3>Se ha enviado un correo a "+email+"</h3><h3>Es posible que haya llegado a la bandeja de spam</h3><h4><a href=\"index.php\">Volver a la página de inicio</a><h4>";	
+	document.getElementById("formuAlta").style.backgroundColor="rgb(0,0,0,0.3)";
+	
 }
 	

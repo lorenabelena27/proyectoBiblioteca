@@ -1,0 +1,135 @@
+/*css*/
+div#misLibros > table{
+	margin: auto;
+	margin-bottom: 20px;
+	background-color: rgb(0,0,0,0.3);
+	font-size: 1.2em;
+}
+
+div#misLibros > table, div#misLibros > table > tr{
+	margin-bottom: 30px;
+}
+
+div#misLibros > table > tr > th {
+	text-align: center;
+}
+
+div#misLibros > table, div#misLibros > table > tr > td, div#misLibros > table > tr > th {
+	border: 3px solid black;
+	border-collapse: collapse;
+}
+
+div#misLibros > table > tr > td.infoMisLibros {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+div#misLibros > table img {
+	height: 100px;
+	width: 100px;
+}
+
+/*******************SIN TABLAS*****************/
+div#misLibros {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	
+}
+
+div#misLibros > * {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+div#misLibros > h1 {
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+div#misLibros > div{
+	background: rgb(0,0,0,0.35);
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+div#misLibros > div#tablaPrestamos{
+	background: rgb(0,0,0,0.35);
+	display:flex;
+	width: 50%;
+}
+
+div#misLibros > div#tablaReservas {
+	background: rgb(0,0,0,0.35);
+	display:flex;
+	width: 40%;
+	margin-bottom: 40px;
+}
+
+div#misLibros > * > div.libroMisLibros, div#misLibros > * > div.cabeceraTabla {
+	display:flex;
+	width: 100%;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+div#misLibros > * > div.cabeceraTabla > * {
+	font-size: 1.6em;
+	flex: 1;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+div#misLibros > div#tablaPrestamos > div.cabeceraTabla > #cabeceraLibroP {
+	flex: 2.82;
+}
+
+div#misLibros > div#tablaReservas > div.cabeceraTabla > #cabeceraLibroR {
+	flex: 2.82;
+}
+
+div#misLibros > * > div.libroMisLibros > div.infoMisLibros {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	border-collapse: collapse;
+	
+}
+
+div#misLibros > * > div.libroMisLibros > * {
+	font-size: 1.3em;
+	flex: 1;
+}
+
+div#misLibros > * > div.libroMisLibros > div.infoMisLibros-titulo {
+	flex: 2;
+}
+
+div#misLibros > * > * {
+	display:flex;
+	width: 50%;
+}
+
+div#misLibros > * > div.libroMisLibros > div.propImg {
+	flex: 0.8;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+div#misLibros > * > div.libroMisLibros > div > img {
+	width: 100%;
+	height: 100px;
+}
+
+div#misLibros > h2{
+	text-align: center;
+}
+
+div#misLibros > h2 > a {
+	color:rgb(148,216,233);
+}

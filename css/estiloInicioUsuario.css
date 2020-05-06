@@ -1,0 +1,58 @@
+/**/
+div.post {
+	margin-bottom: 40px;
+	height: auto;
+}
+div.contenido_post{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+div#inicio > section.posts > div.post > div.contenido_post > div.post_txt > h1 {
+	text-align: left;
+	
+}
+
+div#inicio > section.posts > div.post > div.contenido_post img {
+	margin: 0;
+	
+}
+
+div#ultimasPublicaciones, div#librosRecomendados{
+	width: 100%;
+	display: flex;
+	justify-content: start;
+	padding: 0;
+	margin-bottom: 10px;
+}
+
+div#ultimasPublicaciones > div.libroPubli, div#librosRecomendados > div.libroPubli {
+	flex-basis: 20%;
+	display: flex;
+	justify-content: center;
+}
+
+div#ultimasPublicaciones > div.libroPubli > img, div#librosRecomendados > div.libroPubli > img {
+	width: 100%;
+	border-right: 3px solid  white;
+	border-left: 3px solid  white;
+	background-color: black;
+	cursor: pointer;
+}
+
+div#libro_semana {
+	display: flex;
+	justify-content: space-evenly;
+}
+div#libro_semana  > div.resumenLibSemana {
+	flex-basis: 75%;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	padding-left: 40px;
+}
+
+div#libro_semana  > img {
+	flex-basis: 15%;
+}

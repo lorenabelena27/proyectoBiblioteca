@@ -1,0 +1,5 @@
+1-postfix : https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-on-ubuntu-18-04-es
+2-opendkim : https://blog.openalfa.com/como-evitar-que-los-emails-enviados-por-postfix-sean-considerados-como-spam#2_Instalacion_y_configuracion_de_opendkim
+3-bind9ydns : https://www.redeszone.net/gnu-linux/configurar-un-servidor-dns-bind-en-linux-ubuntu/
+4-LAMP :https://www.digitalocean.com/community/tutorials/como-instalar-en-ubuntu-18-04-la-pila-lamp-linux-apache-mysql-y-php-es
+5-phpmyadmin:https://www.digitalocean.com/community/tutorials/como-instalar-y-proteger-phpmyadmin-en-ubuntu-18-04-es

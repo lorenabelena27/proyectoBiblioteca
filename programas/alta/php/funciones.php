@@ -1,7 +1,7 @@
 <?php
 function validaEmail($email){
 	$resp = false;
-	$patron="/^([a-zA-Z])+([\w\._])*([a-zA-Z])+@/";	
+	$patron="/^([a-zA-Z])+([\w\._])*([a-zA-Z])*([0-9])*@/";	
 	$dominios=array("gmail.com","yahoo.com","yahoo.es","hotmail.com"); 
 	$pos=strpos($email,"@"); 
 	$parte=substr($email,$pos+1);
@@ -30,9 +30,9 @@ function validaDni($dni){
 	if (preg_match($patron,$dni)==true){ 
 		$numero=substr($dni,0,8); 
 		$letras="TRWAGMYFPDXBNJZSQVHLCKE"; 
+		$letrasM="trwagmyfpdxbnjzsqvhlcke"; 
 		$resto=intval($numero)%23;	
-
-		if (strcmp($dni[8],$letras[$resto])!=0){
+		if ((strcmp($dni[8],$letras[$resto])!=0) && (strcmp($dni[8],$letrasM[$resto])!=0)){
 			return "dni no valido";	
 		}else{
 			return "dni valido";
@@ -43,7 +43,7 @@ function validaDni($dni){
 }
 function alta($nombre,$apellidos,$dni,$email,$fecha,$pas){
 	$con= ConectaBD::getInstance();
-	
+	$dni=strtoupper($dni);
 	if ( !( $query = $con->prepare( "select nombre from usuarios where dni=:dni " ) ) ){
 			echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 		}elseif ( ! $query->bindParam( ":dni", $dni) ) { 

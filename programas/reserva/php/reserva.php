@@ -14,5 +14,11 @@ if(isset($peticion->reserva)){
 	$fecha=$peticion->fecha;
 	reservarLibro($dni,$codigo,$fecha);
 	
+}elseif(isset($peticion->codigoPrestar)){
+	$codigo=$peticion->codigoPrestar;
+	$fechaIni=$peticion->fechaIni;
+	$fechaFin=$peticion->fechaFin;
+	prestarLibro($dni,$codigo,$fechaIni,$fechaFin);
+	
 }
 ?>

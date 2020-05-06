@@ -1,6 +1,8 @@
 var libros;
 document.addEventListener("readystatechange",cargarEvento,false);
+
 function cargarEvento(){
+	
 	if(document.readyState=="interactive"){
 		document.getElementById("volverB").addEventListener("click",volverB,false);
 		document.getElementById("id_buscar").addEventListener("click",busqueda,false);
@@ -8,8 +10,8 @@ function cargarEvento(){
 	}
 }
 function busqueda(){
+	
 	var todoBien=false;
-	var error;
 	var dato=document.getElementById("id_libro").value;
 	if(dato==" " || dato==""){
 		document.getElementById("error_busq").innerHTML="Debe introducir un titulo o nombre de autor";	
@@ -30,12 +32,14 @@ function busqueda(){
 	
 }
 function gestionarBusqueda(evento){
+	
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
 			respuesta = JSON.parse(evento.target.responseText);
 			respuestaBusqueda(respuesta);
         }
 }
 function respuestaBusqueda(respuesta){
+	
 	if(respuesta.length > 0){
 		if(document.getElementById("inicio")){
 			document.getElementById("inicio").style.display="none";
@@ -63,6 +67,7 @@ function respuestaBusqueda(respuesta){
 }
 
 function mostrarBusqueda(){
+	
 	libros = respuesta;
 	document.getElementById("libros_busqueda").innerHTML="";	
 	for(var i=0;i<libros.length;i++){
@@ -91,6 +96,9 @@ function mostrarBusqueda(){
 		var spanIdioma = document.createElement("span");
 		spanIdioma.setAttribute("class","oculto");
 		spanIdioma.innerHTML = libros[i]["idioma"];
+		var spanCodigo = document.createElement("span");
+		spanCodigo.setAttribute("class","oculto");
+		spanCodigo.innerHTML = libros[i]["cod_libro"];
 		img.appendChild(img2);
 		div.appendChild(img);
 		div.appendChild(infoLibro);
@@ -98,6 +106,7 @@ function mostrarBusqueda(){
 		div.appendChild(spanRes);
 		div.appendChild(spanEditorial);
 		div.appendChild(spanIdioma);
+		div.appendChild(spanCodigo);
 		document.getElementById("libros_busqueda").appendChild(div);
 	}
 	
@@ -111,7 +120,8 @@ function fichaTecnicaB(){
 }
 
 function mostrarFTB(){
-
+	
+	document.getElementById("estadoLibro").style.display="none";
 	var ruta = this.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
 	var titulo=this.parentNode.firstChild.innerHTML;
 	var autor=this.parentNode.firstChild.nextSibling.innerHTML;
@@ -120,6 +130,7 @@ function mostrarFTB(){
 	var des=this.parentNode.nextSibling.nextSibling.innerHTML;
 	var editorial=this.parentNode.nextSibling.nextSibling.nextSibling.innerHTML;
 	var idioma=this.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.innerHTML;
+	var codigo=this.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerHTML;
 	document.getElementById("info").style.display="flex";
 	document.getElementById("busqueda").style.display="none";
 	document.getElementById("imgPortada").innerHTML="";
@@ -127,18 +138,21 @@ function mostrarFTB(){
 	document.getElementById("ficha").innerHTML="";
 	document.getElementById("imgPortada").innerHTML="<img src=\""+ruta+"\">";
 	document.getElementById("informacionRes").innerHTML="<h1>"+titulo+"</h1><p>"+des+"</p>";
-	document.getElementById("ficha").innerHTML="<h3>Ficha Técnica</h3><p>Autor: "+autor+"</p><p>Género: "+genero+"</p><p>Año: "+año+"</p><p>Idioma: "+idioma+"</p><p>Editorial: "+editorial+"</p>";
+	document.getElementById("ficha").innerHTML="<h3>Ficha Técnica</h3><p>Autor: "+autor+"</p><p>Género: "+genero+"</p><p>Año: "+año+"</p><p>Idioma: "+idioma+"</p><p>Editorial: "+editorial+"</p><p>ISBN :<span id=\"codigo\">"+codigo+"</span></p>";
 	document.getElementById("volver").style.display="none";
 	document.getElementById("volverB").style.display="block";
+	document.getElementById("volverI").style.display="none";
 }
 
 function volverB(){
+	
 	document.getElementById("info").style.display="none";
 	document.getElementById("busqueda").style.display="block";
 	
 }
 
 function cerrarBusqueda(){
+	
 	document.getElementById("busqueda").style.display="none";
 	if(document.getElementById("inicio")){
 		document.getElementById("inicio").style.display="block";

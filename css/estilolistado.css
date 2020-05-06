@@ -9,6 +9,8 @@ div.libro{
 	flex-basis: 20%;
 	height: 300px;
 	margin: 2%;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 div.libro > div > img{
@@ -65,12 +67,19 @@ li.pag_actual > p {
 .libro {
 	/*height: 100%;
 	width: 100%;*/
-	transition: all 1s;
+	transition-property: transform;
+	transition: 1s;
+	
 	transform-style: preserve-3d;
+
 	/*position:absolute;*/
+
 }
-.libro:hover{
-  transform: rotateY(180deg);
+.libro:hover {
+	transform: rotateY(180deg);
+	-ms-transform:rotateY(180deg); 
+	-moz-transform:rotateY(180deg); 
+	-webkit-transform: rotateY(180deg);
 }
 
 .lado{
@@ -78,6 +87,7 @@ li.pag_actual > p {
 	height: 100%;
 	width: 100%;
 	background-color: black;
+	-moz-backface-visibility: hidden;
 }
 /*para dar estilo al contenido del ul*/
 .libro ul {
@@ -102,7 +112,8 @@ li.pag_actual > p {
 .atras{
 	height: 100%;
 	width: 100%;
-    transform: rotateY(180deg); /*te permite modificar el espacio de coordenadas para crear una rotacion*/
+	transform: rotateY(180deg); 
+    -moz-transform: rotateY(180deg); /*te permite modificar el espacio de coordenadas para crear una rotacion*/
 }
 /*para dar estilo al contenido del h3*/
 .atras h2, .atras h3, .atras h4 {
@@ -122,7 +133,7 @@ div.libros > div.libro div.fichaTecnica {
 }
 
 div.libros > div.libro div.fichaTecnica:hover {
-	color: blue;
+	color:rgb(148,216,233);
 }
 
 div.informacion {
@@ -181,10 +192,8 @@ div.informacion > div#informacionFicha > div#ficha > h3 {
 }
 
 div#busqueda > div#cerrar_busqueda {
-	
 	padding: 1%;
-	background-color: rgb(0,0,0,0.2);
-	/*color: rgb(46, 10, 2);*/
+	background-color: rgb(0,0,0,0.2);  
 	color: none;
 	float: right;
 	font-size: 1.2em;
@@ -193,20 +202,19 @@ div#busqueda > div#cerrar_busqueda {
 }
 
 div#busqueda > div#cerrar_busqueda:hover {
-	color: aqua;
+	color:rgb(148,216,233);
 }
-
 
 div#busqueda > div.libros {
 	width: 100%;
 }
 
-span#volver, span#volverB{
+span#volver, span#volverB, span#volverI{
 	display: block;
 	font-size: 0.9em;
 	cursor: pointer;
 	flex-basis: 100%;
-	border: 3px solid red;
+	border: 3px solid lightgrey;
 	margin-top: 10%;
 	text-align: center;
 }
@@ -221,11 +229,11 @@ div.vertical-oculto#menuFiltros *{
 	background: transparent;
 }
 .vertical-menu > h2, .vertical-oculto > h2 {
-      color: rgb(205 ,138, 86);
-      padding: 0px 0px 0px 15px;
-	  display: block;
-      margin: 1px;
-      padding: 5px;
+	color: rgb(205 ,138, 86);
+    padding: 0px 0px 0px 15px;
+	display: block;
+    margin: 1px;
+    padding: 5px;
     }
 .vertical-menu, .vertical-oculto {
 	float: left;
@@ -266,4 +274,14 @@ body > div.wrapper#hoja > div#libros_listar > div.vertical-menu#menuFiltros span
 .vertical-menu#menuFiltros span.active {
     background-color: black;
     color: rgb(205 ,138, 86);
+}
+
+div.informacion > div#estadoLibro {
+	background-color: rgb(0,0,0);
+	position: absolute;
+	margin-top: 40%;
+	width: 100%;
+	padding: 3%;
+	text-align: center;
+	display: none;
 }

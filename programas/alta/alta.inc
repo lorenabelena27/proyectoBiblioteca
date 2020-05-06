@@ -1,5 +1,5 @@
 
-<div id="prueba">
+<div id="formuAlta">
 <form action="<?php echo $_SERVER['PHP_SELF'];?> method="POST">
 	<label  for="id_nombre" >Nombre: </label>
 	<input type="text" name="nombre" id="id_nombre" value=""/><br><br>
@@ -37,6 +37,8 @@
 	<div id="div_error_confir"class="">
 		<p id="error_confir"></p>
 	</div>
-	<input type="button" name="enviar" id="id_enviar" value="Enviar"/>  
+	<input type="button" name="enviar" id="id_enviar" value="Enviar"/> 
+	
 </form>
+<br><h3><a href="index.php">Volver a la página de inicio</a><h3>
 </div>

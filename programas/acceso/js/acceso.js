@@ -1,11 +1,13 @@
 document.addEventListener("readystatechange",cargarEvento,false);
 
 function cargarEvento(){
+	
 	if(document.readyState=="interactive"){
 		document.getElementById("id_enviar1").addEventListener("click",peticionAcceso,false);
 	}
 }
 function peticionAcceso(){
+	
 	var email1 =document.getElementById("id_email1").value;
 	var p1=document.getElementById("error_email1");
 	var todoBien=false;
@@ -38,14 +40,15 @@ function peticionAcceso(){
 	
 }
 function gestionarAcceso(evento){
+	
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
 		respuesta = JSON.parse(evento.target.responseText);
 		if(respuesta=="Entras"){
 			respuestaAcceso(respuesta);
-		}else{
-			alert(respuesta);
+		}else if(respuesta=="No"){
+			document.getElementById("error_pass1").innerHTML= "";
+			document.getElementById("error_email1").innerHTML= "Usuario y/o contraseña incorrectas";
 		}
-		
     }
 }
 function respuestaAcceso(respuesta){

@@ -19,7 +19,6 @@ function paginacion($tamanio){
 			for($i=0;$i<sizeof($resultado);$i++){
 				foreach($resultado[$i] as $clave => $valor){
 					$resultado[$i][$clave] =ucfirst($resultado[$i][$clave]);
-					//$resultado[libro1][autor] = ucwords(Calderon de la barca)
 				}
 			}
 			array_push($res,$resultado);
@@ -51,18 +50,8 @@ function categorias(){
 	}
 }
 function librosCT($categoria, $tamanio){
-	/*$con= ConectaBD::getInstance();
-	if ( !( $query = $con->prepare("select * from libros where genero = :categoria order by titulo asc ") ) ){
-		echo "Falló la preparación: " . $Id->errno . " - " . $Id->error; 	
-	}elseif ( ! $query->bindParam( ":categoria", $categoria) ) { 
-		echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
-	}else{
-		$query->execute();
-		$resultado= $query ->fetchAll(PDO::FETCH_ASSOC);
-		echo json_encode($resultado);
-	}*/
 	
-		$con= ConectaBD::getInstance();
+	$con= ConectaBD::getInstance();
 	$res = array();		
 	if ( !( $query = $con->prepare("select count(*) from libros where genero = :categoria ") ) ){
 		echo "Falló la preparación: " . $Id->errno . " - " . $Id->error; 	
@@ -84,7 +73,6 @@ function librosCT($categoria, $tamanio){
 			for($i=0;$i<sizeof($resultado);$i++){
 				foreach($resultado[$i] as $clave => $valor){
 					$resultado[$i][$clave] =ucfirst($resultado[$i][$clave]);
-					//$resultado[libro1][autor] = ucwords(Calderon de la barca)
 				}
 			}
 			array_push($res,$resultado);

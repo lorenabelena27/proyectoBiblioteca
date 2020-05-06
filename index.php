@@ -6,7 +6,7 @@
 
 include "Comun/cabecera.inc";
 if(isset($_SESSION['usuario'])){
-	include "Inicio/menu.inc";
+	include "vista_usuario/menu.inc";
 	if ($_SERVER['QUERY_STRING'] == "cerrar") {
 		unset($_SESSION['usuario']);
 		session_destroy();
@@ -15,15 +15,15 @@ if(isset($_SESSION['usuario'])){
 		include "programas/listar_libros/listar_libros.inc";
 	}elseif ($_SERVER['QUERY_STRING'] == "listarLibros") {
 		include "programas/listar_libros/listar_libros.inc";
-	}elseif ($_SERVER['QUERY_STRING'] == "reserva") {
-
+	}elseif ($_SERVER['QUERY_STRING'] == "misLibros") {
+		include "programas/mis_libros/mis_libros.inc";
 	}else{
-		include "Inicio/cuerpoUsuario.inc";
+		include "vista_usuario/cuerpoUsuario.inc";
 	}
 	include "Comun/busqueda.inc";
 }else{
 	if (!$_SERVER['QUERY_STRING']) {
-		include "Inicio/cuerpo.inc";
+		include "Comun/cuerpo.inc";
 	}elseif ($_SERVER['QUERY_STRING'] == "alta") {
 		include "programas/alta/alta.inc";
 	}

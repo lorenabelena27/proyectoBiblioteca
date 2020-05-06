@@ -4,6 +4,7 @@
 		
 	</div>
 <div id="info" class="informacion">
+	<div id="estadoLibro"></div>
 	<div id="informacionImg">
 		<div id="imgPortada"></div>
 		<div><input type="button" id="reservar" value="Reservar"/></div>
@@ -16,6 +17,9 @@
 		</span>
 		<span id="volverB">
 			Volver a la lista de la búsqueda
+		</span>
+		<span id="volverI">
+			Volver al inicio
 		</span>
 	</div>
 	

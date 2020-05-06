@@ -1,0 +1,3 @@
+<?php $titulo="Los hombres que no amaban a las mujeres";$prueba="los_hombres";$resumen="Harriet Vanger desapareció hace treinta y seis años en una isla sueca propiedad de su poderosa familia. A pesar del despliegue policial, no se encontró ni rastro de la muchacha. ¿Se escapó? ¿Fue secuestrada? ¿Asesinada?
+
+El caso está cerrado y los detalles olvidados. Pero su tío Henrik Vanger, un empresario retirado, vive obsesionado con resolver el misterio antes de morir. En las paredes de su estudio cuelgan cuarenta y tres flores secas y enmarcadas. Las primeras siete fueron regalos de su sobrina; las otras llegaron puntualmente para su cumpleaños, de forma anónima, desde que Harriet desapareció.";

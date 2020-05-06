@@ -1,3 +1,7 @@
+@font-face {
+	font-family: GuldScript_PersonalUseOnly;
+	src: url("../fuentes/GuldScript_PersonalUseOnly.ttf");
+}
 .flex_nav {
 	flex-direction:row;
 	flex-wrap: wrap;
@@ -44,6 +48,12 @@
 .flex-nav > ul > li.prog > a > div, .flex-nav > ul > li > div {
 	height: 100%;
 	width: 100%;
+}
+
+body > div.wrapper#hoja > nav.flex-nav#menuUsu > ul > li.prog > a > div > h4 {
+	color:lightgrey;
+	font-family: GuldScript_PersonalUseOnly;
+	font-size:30px;
 }
 
 .flex-nav > ul > li:hover {
