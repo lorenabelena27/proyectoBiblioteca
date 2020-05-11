@@ -7,6 +7,7 @@ function cargarEvento(){
 		document.getElementById("volverB").addEventListener("click",volverB,false);
 		document.getElementById("id_buscar").addEventListener("click",busqueda,false);
 		document.getElementById("cerrar_busqueda").addEventListener("click",cerrarBusqueda,false);
+		document.getElementById("botonMenu").addEventListener("click",menuDesplegable,false);
 	}
 }
 function busqueda(){
@@ -47,6 +48,10 @@ function respuestaBusqueda(respuesta){
 		
 		if(document.getElementById("libros_listar")){
 			document.getElementById("libros_listar").style.display="none";
+		}
+		
+		if(document.getElementById("misLibros")){
+			document.getElementById("misLibros").style.display="none";
 		}
 		
 		document.getElementById("busqueda").style.display="block";
@@ -153,12 +158,24 @@ function volverB(){
 
 function cerrarBusqueda(){
 	
-	document.getElementById("busqueda").style.display="none";
+	document.getElementById("busqueda").style.display=" none";
 	if(document.getElementById("inicio")){
-		document.getElementById("inicio").style.display="block";
+		document.getElementById("inicio").style.display=" block";
 	}
 	
 	if(document.getElementById("libros_listar")){
 		document.getElementById("libros_listar").style.display="block";
+	}
+	
+	if(document.getElementById("misLibros")){
+			document.getElementById("misLibros").style.display="block";
+		}
+}
+
+function menuDesplegable(){
+	if(document.getElementById("menuOculto").style.display=="flex"){
+		document.getElementById("menuOculto").style.display="none";
+	}else{
+		document.getElementById("menuOculto").style.display="flex";
 	}
 }

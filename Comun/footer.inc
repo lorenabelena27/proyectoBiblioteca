@@ -16,5 +16,6 @@
 				</li>
 			</ul>
 	</ul>
+</nav>
 </footer>
 </div>

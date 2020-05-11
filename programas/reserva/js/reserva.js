@@ -51,7 +51,7 @@ function respuestaReserva(respuesta){
 			var sep1 = new RegExp("-", "g");
 			var fechaI = fechaIni.split(sep1);
 			var fechaF = fechaFin.split(sep1);
-			alert(fechaF);
+			
 			if(confirm("¿Quieres realizar un préstamo de "+document.getElementById("informacionRes").firstChild.innerHTML+"? \n Desde: "+fechaI[2]+"-"+fechaI[1]+"-"+fechaI[0]+" \n Hasta: "+fechaF[2]+"-"+fechaF[1]+"-"+fechaF[0])){
 				var libro=document.getElementById("codigo").innerHTML;
 				prestarLibro(libro,fechaIni,fechaFin);

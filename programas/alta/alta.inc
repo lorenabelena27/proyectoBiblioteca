@@ -40,5 +40,5 @@
 	<input type="button" name="enviar" id="id_enviar" value="Enviar"/> 
 	
 </form>
-<br><h3><a href="index.php">Volver a la página de inicio</a><h3>
+<br><h3><a href="index.php">Volver a la página de inicio</a></h3>
 </div>

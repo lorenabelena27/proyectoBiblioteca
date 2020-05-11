@@ -2,10 +2,12 @@
 	font-family: GuldScript_PersonalUseOnly;
 	src: url("../fuentes/GuldScript_PersonalUseOnly.ttf");
 }
-.flex_nav {
+.flex-nav {
+	display: block;
+	position: sticky;
 	flex-direction:row;
 	flex-wrap: wrap;
-	}
+}
 .flex-nav h1 {
 	float: left;
 	height: 57px;
@@ -14,20 +16,18 @@
 	font-family: helvetic;
 }
 .flex-nav ul {
-	display: block;
 	font-size: 0.9em;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	display: flex;
 	flex-direction: row;
-	position: sticky;
 	top: 0;
 }
-.flex-nav li.prog {
+.flex-nav li.prog, .flex-nav li.busqueda {
 	flex-basis: 30%;
 }
-.flex-nav > ul > li.prog{
+.flex-nav > ul > li.prog, .flex-nav li.busqueda {
 	color:white;
 	font-weight: 100;
 	letter-spacing: 0.7px;
@@ -48,9 +48,12 @@
 .flex-nav > ul > li.prog > a > div, .flex-nav > ul > li > div {
 	height: 100%;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-body > div.wrapper#hoja > nav.flex-nav#menuUsu > ul > li.prog > a > div > h4 {
+body > div.wrapper#hoja > nav.flex-nav#menuUsu > ul > li.prog > a > div > h4, body > div.wrapper#hoja > nav.flex-nav#menuUsu > ul > li.menu > div > h4,  body > div.wrapper#hoja > nav.flex-nav#menuUsu > div h4 {
 	color:lightgrey;
 	font-family: GuldScript_PersonalUseOnly;
 	font-size:30px;
@@ -73,6 +76,11 @@ body > div.wrapper#hoja > nav.flex-nav#menuUsu > ul > li.prog > a > div > h4 {
 	padding:20px;
 }
 
+.flex-nav > ul > li.menu {
+	display: none;
+}
+
+
 nav.flex-nav > ul > li.toggleNav#btn-filtrar {
 	font-size: 40px;
 	cursor: pointer;
@@ -80,4 +88,79 @@ nav.flex-nav > ul > li.toggleNav#btn-filtrar {
 }
 nav.flex-nav > ul > li.toggleNav#btn-filtrar:hover {
 	color: black;
+}
+
+div#menuOculto {
+	display: none;
+	text-decoration: none;
+}
+nav#menuUsu > ul > li#botonMenu{
+	text-align: center;
+	cursor: pointer;
+}
+
+div#menuOculto > div.progOculto a{
+	text-decoration: none;
+}
+div#menuOculto > div.progOculto:hover {
+	background:rgba(0,0,0,0.3);
+	text-decoration: none;
+}
+
+
+@media all and (max-width:408px) {
+	body > div.wrapper#hoja {
+		color: aqua;
+		background:rgba(0,0,0,0.3);
+	}
+
+	.flex-nav > ul > li.prog {
+		display: none;
+	}
+	
+	.flex-nav > ul > li.menu {
+		display: block;
+	}
+	
+	.flex-nav li.busqueda, .flex-nav > ul > li.menu {
+		flex-basis: 50%;
+	}
+	
+	div#menuOculto {
+		display: none;
+		flex-direction: column;
+	}
+	
+	div#menuOculto > div.progOculto {
+		flex: 1;
+		background:rgba(0,0,0,0.7);
+		text-align: center;
+	}
+}
+@media all and (max-width:356px) {
+	nav.flex-nav > ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	nav.flex-nav > ul > li.toggleNav#btn-filtrar {
+		font-size: 20px;
+		cursor: pointer;
+		flex-basis: 10%;
+		padding: 0;
+	}
+	
+	.flex-nav > ul > * {
+		order: 2;
+		
+	}
+	
+	.flex-nav > ul > li.menu#botonMenu {
+		flex-basis: 100%;
+		order: 1;
+		padding: 0;
+	}
+	
+	.wrapper > .flex-nav > ul > li.busqueda {
+		padding: 5% 0 5% 0;
+	}
 }

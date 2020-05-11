@@ -83,10 +83,15 @@ function cambiarBordeImg(){
 			document.getElementsByClassName("imgUltimasP")[i].style.backgroundColor="white";
 			document.getElementsByClassName("imgUltimasP")[i].style.borderLeft="3px solid black";
 			document.getElementsByClassName("imgUltimasP")[i].style.borderRight="3px solid black";
+			document.getElementsByClassName("imgUltimasP")[i].style.borderTop="3px solid white";
+			document.getElementsByClassName("imgUltimasP")[i].style.borderBottom="3px solid white";
+
 		}else{
 			document.getElementsByClassName("imgUltimasP")[i].style.backgroundColor="black";
 			document.getElementsByClassName("imgUltimasP")[i].style.borderLeft="3px solid white";
-		document.getElementsByClassName("imgUltimasP")[i].style.borderRight="3px solid white";
+			document.getElementsByClassName("imgUltimasP")[i].style.borderRight="3px solid white";
+			document.getElementsByClassName("imgUltimasP")[i].style.borderTop="3px solid black";
+			document.getElementsByClassName("imgUltimasP")[i].style.borderBottom="3px solid black";
 		}
 	}
 	setTimeout(cambiarBordeImg, 2000);

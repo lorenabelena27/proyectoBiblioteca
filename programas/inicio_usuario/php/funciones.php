@@ -86,7 +86,8 @@ function librosRecomendados($dni){
 			}elseif(sizeof($generos)<5){
 				//literatura, ciencia fic, infantil
 				for($i=0;$i<5;$i++){
-					if($i<sizeof($generos)){
+					if($i<sizeof($generos)){//0<4 1<4 2<4 3<4 4<4 
+						$gen=$i;
 						$genero=$generos[$i];
 					}else{
 						$gen=rand(0,(sizeof($generos)-1));
@@ -100,9 +101,9 @@ function librosRecomendados($dni){
 								$nLibrosGenElegidos++;
 							}
 						}
-						
-					}while(!libroValido($libroValido,$libros) && ($nLibrosGenElegidos<numLibrosGen($genero)));
-					if(libroValido($libroValido,$libros)){
+						//echo json_encode($libroValido);
+					}while(!libroValido($libroAleatorio,$libros) && ($nLibrosGenElegidos<numLibrosGen($genero)));
+					if(libroValido($libroAleatorio,$libros)){
 						array_push($libros,$libroAleatorio);
 					}
 					

@@ -1,7 +1,7 @@
 
 	
     <section class="wrapper2">
-	  <div 
+	 
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
 					  <!-- Indicators -->
 					  <ol class="carousel-indicators">
@@ -13,15 +13,15 @@
 					  <!-- Wrapper for slides -->
 					  <div class="carousel-inner">
 						<div class="item active">
-						  <img src="img/carrusel1.jpg">
+						  <img src="img/carrusel1.jpg" alt="img">
 						</div>
 
 						<div class="item">
-						  <img src="img/carrusel2.jpg">
+						  <img src="img/carrusel2.jpg" alt="img">
 						</div>
 
 						<div class="item">
-						  <img src="img/carrusel3.jpg">
+						  <img src="img/carrusel3.jpg" alt="img">
 						</div>
 					  </div>
 
@@ -57,7 +57,7 @@
 				</p>
 			</div>
 			<div class="post_img">
-				<img src="img/libro.jpg">
+				<img src="img/libro.jpg" alt="libro">
 			</div>
 		</div>
 	  </div>
@@ -77,7 +77,7 @@
 				</p>
 			</div>
 			<div class="post_img">
-				<img src="img/celestina.jpg">
+				<img src="img/celestina.jpg" alt="celestina">
 			</div>
 		</div>
 	  </div>
@@ -94,7 +94,7 @@
 				</p>
 			</div>
 			<div class="post_img">
-				<img src="img/poesia.jpg">
+				<img src="img/poesia.jpg" alt="poesia">
 			</div>
 		</div>
 	  </div>
@@ -110,6 +110,7 @@
 			</p>
 		</div>
 	
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.7577437489813!2d-3.6974207856387!3d40.36989567937058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4226cdfefd6c59%3A0x5c599da87d0d06ff!2sIES%20Enrique%20Tierno%20Galv%C3%A1n!5e0!3m2!1ses!2ses!4v1585781197858!5m2!1ses!2ses" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.7577437489813!2d-3.6974207856387!3d40.36989567937058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4226cdfefd6c59%3A0x5c599da87d0d06ff!2sIES%20Enrique%20Tierno%20Galv%C3%A1n!5e0!3m2!1ses!2ses!4v1585781197858!5m2!1ses!2ses" width="400" height="300"  style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+	</iframe>
 	</section>
       

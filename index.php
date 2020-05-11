@@ -17,6 +17,8 @@ if(isset($_SESSION['usuario'])){
 		include "programas/listar_libros/listar_libros.inc";
 	}elseif ($_SERVER['QUERY_STRING'] == "misLibros") {
 		include "programas/mis_libros/mis_libros.inc";
+	}elseif ($_SERVER['QUERY_STRING'] == "cambio") {
+		include "programas/cambio/cambio.inc";
 	}else{
 		include "vista_usuario/cuerpoUsuario.inc";
 	}
@@ -26,6 +28,8 @@ if(isset($_SESSION['usuario'])){
 		include "Comun/cuerpo.inc";
 	}elseif ($_SERVER['QUERY_STRING'] == "alta") {
 		include "programas/alta/alta.inc";
+	}elseif ($_SERVER['QUERY_STRING'] == "recuperar") {
+		include "programas/recuperar/recuperar.inc";
 	}
 }
 

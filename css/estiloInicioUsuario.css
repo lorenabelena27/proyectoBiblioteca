@@ -11,7 +11,6 @@ div.contenido_post{
 
 div#inicio > section.posts > div.post > div.contenido_post > div.post_txt > h1 {
 	text-align: left;
-	
 }
 
 div#inicio > section.posts > div.post > div.contenido_post img {
@@ -35,6 +34,8 @@ div#ultimasPublicaciones > div.libroPubli, div#librosRecomendados > div.libroPub
 
 div#ultimasPublicaciones > div.libroPubli > img, div#librosRecomendados > div.libroPubli > img {
 	width: 100%;
+	border-top: 3px solid  white;
+	border-bottom: 3px solid  white;
 	border-right: 3px solid  white;
 	border-left: 3px solid  white;
 	background-color: black;
@@ -44,6 +45,7 @@ div#ultimasPublicaciones > div.libroPubli > img, div#librosRecomendados > div.li
 div#libro_semana {
 	display: flex;
 	justify-content: space-evenly;
+	padding-bottom: 20px;
 }
 div#libro_semana  > div.resumenLibSemana {
 	flex-basis: 75%;
@@ -55,4 +57,148 @@ div#libro_semana  > div.resumenLibSemana {
 
 div#libro_semana  > img {
 	flex-basis: 15%;
+	margin-bottom: 10px;
+}
+
+
+@media all and (max-width:1093px) {
+	body > div.wrapper#hoja {
+		color: blue;
+		background: rgba(0,0,0,0.3);
+	}
+	
+	div#libro_semana {
+		flex-direction: column;
+		align-items: left;
+	}
+	
+	div#libro_semana  > div.resumenLibSemana {
+		flex-basis: 0%;
+		padding-right: 40px;
+		height: auto;
+		justify-content: start;
+	}
+	
+	div#inicio > section.posts > div.post > div.contenido_post > div#libro_semana  > img {
+		flex-basis: 0%;
+		max-width: 218px;
+		min-height: 300px;
+		margin: 0 0 10px 40px;
+	}
+
+	
+}
+
+@media all and (max-width:977px) {
+	body > div.wrapper#hoja {
+		color: red;
+		background: rgba(0,0,0,0.3);
+	}
+}
+
+@media all and (max-width:888px) {
+	body > div.wrapper#hoja {
+		color: green;
+		background:rgba(0,0,0,0.3);
+	}
+}
+
+
+@media all and (max-width:803px) {
+	body > div.wrapper#hoja {
+		color: yellow;
+		background:rgba(0,0,0,0.3);
+	}
+	
+	div.wrapper > .bloque0 > div.formulario {
+		padding-top: 0px;
+		padding-right: 2px;
+	}
+
+	div#ultimasPublicaciones, div#librosRecomendados {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	div#ultimasPublicaciones > div.libroPubli, div#librosRecomendados > div.libroPubli {
+		flex-basis: 33%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 10px;
+	}
+
+}
+
+@media all and (max-width:590px) {
+	
+	div#ultimasPublicaciones > div.libroPubli, div#librosRecomendados > div.libroPubli {
+		height: 150px;
+	}
+	
+	div#ultimasPublicaciones > div.libroPubli > img.imgUltimasP, div#librosRecomendados > div.libroPubli > img.imgUltimasP {
+		height: 150px;
+	}
+	
+	div#inicio > section.posts > div.post > div.contenido_post > div#libro_semana  > img {
+		flex-basis: 0%;
+		max-width: 150px;
+		min-height: 250px;
+		margin: 0 0 10px 40px;
+	}
+	
+	div#libro_semana  > div.resumenLibSemana > h2 {
+		font-size: 25px;
+	}
+	
+	div#libro_semana  > div.resumenLibSemana > p {
+		font-size: 15px;
+	}
+}
+
+@media all and (max-width:488px) {
+	body > div.wrapper#hoja {
+		color: pink;
+		background:rgba(0,0,0,0.3);
+	}
+	
+	.posts {
+		padding: 0% 0% 0% 0%;
+	}
+	
+	div.post {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+
+@media all and (max-width:408px) {
+	body > div.wrapper#hoja {
+		color: aqua;
+		background:rgba(0,0,0,0.3);
+	}
+	
+	div#inicio > section.posts > div.post > div.contenido_post > div.post_txt > h1 {
+		font-size: 28px;
+	}
+	div#inicio > section.posts > div.post > div.contenido_post > div#libro_semana  > img {
+		flex-basis: 0%;
+		max-width: 120px;
+		min-height: 200px;
+		margin: 0 0 10px 40px;
+	}
+
+
+}
+
+@media all and (max-width:362px) {
+	body > div.wrapper#hoja {
+		color: orange;
+		background:rgba(0,0,0,0.3);
+	}
+}
+
+@media all and (max-width: 264px) {
+	div#inicio > section.posts > div.post > div.contenido_post > div.post_txt > h1 {
+		font-size: 18px;
+	}
 }

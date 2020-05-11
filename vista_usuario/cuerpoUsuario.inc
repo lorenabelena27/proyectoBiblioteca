@@ -22,10 +22,10 @@
 				<h1>LIBRO DE LA SEMANA</h1>
 			</div>
 			<div id="libro_semana">
-				<img src="./imgLibros/<?php	echo $prueba; ?>.jpg">
+				<img src="./imgLibros/<?php	echo $prueba; ?>.jpg" alt="img">
 				<div class="resumenLibSemana">
 					<h2><?php echo $titulo; ?></h2>
-					<p><?php echo $resumen; ?><p>
+					<p><?php echo $resumen; ?></p>
 				</div>
 			</div>
 		</div>

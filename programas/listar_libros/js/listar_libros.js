@@ -204,11 +204,23 @@ function mostrarFiltros(){
 }
 
 function a(){
+	let element = document.getElementsByClassName('libro')[0];
+	let elementStyle = window.getComputedStyle(element);
+	let elementColor = elementStyle.getPropertyValue('flex-basis');
 	if(document.getElementById("menuFiltros").className=="vertical-oculto"){
 		document.getElementById("menuFiltros").className="vertical-menu";
+		document.getElementById("libros_listar").className="conFiltro";
 	}else{
 		document.getElementById("menuFiltros").className="vertical-oculto";
+		document.getElementById("libros_listar").className="sinFiltro";
 	}
+	
+	if(document.getElementById("libros").style.justifyContent=="space-evenly"){
+		document.getElementById("libros").style.justifyContent="center";
+	}else{
+		document.getElementById("libros").style.justifyContent="space-evenly";
+	}
+	
 }
 
 function b(){

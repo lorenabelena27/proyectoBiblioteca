@@ -1,0 +1,6 @@
+@media all and (max-width:356px) {
+	.wrapper > .flex-nav > ul > li.busqueda {
+		flex-basis: 100%;
+		padding: 5% 0 5% 0;
+	}
+}

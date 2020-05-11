@@ -238,7 +238,6 @@ function reserva($dni,$codigo){
 			$respuesta = "SANCIONADO";
 			echo json_encode("SANCIONADO");
 		}
-		//echo json_encode($respuesta);
 	}
 }
 function reservarLibro($dni,$codigo,$fecha){

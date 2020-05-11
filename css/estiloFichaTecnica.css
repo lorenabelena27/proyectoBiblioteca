@@ -1,0 +1,122 @@
+div.libros > div.libro div.fichaTecnica {
+	position: absolute;
+	color: rgb(170 ,165, 136);
+	cursor: pointer;
+	text-align: right;
+	padding-right: 2%;
+	bottom: 0px;
+	width: 100%;
+}
+
+div.libros > div.libro div.fichaTecnica:hover {
+	color:rgb(148,216,233);
+}
+
+div.informacion {
+	color: white;
+	display:none;
+	justify-content:center;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	backdrop-filter: blur(3px);
+	background-color: rgb(0,0,0,0.15);
+	font-size: 1.2em;
+}
+
+div.informacion > div {
+	padding: 5%;	
+}
+
+div.informacion > div#informacionImg {
+	flex-basis:20%;
+}
+
+div.informacion > div#informacionImg > div#imgPortada {
+	height: 400px;
+	width: 255px;
+}
+
+div.informacion > div#informacionImg > div#imgPortada > img {
+	height: 100%;
+	width: 100%;
+}
+
+div.informacion > div#informacionImg > div {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+}
+div.informacion > div#informacionImg > div > input#reservar {
+	background-color: rgb(170 ,165, 136);
+}
+
+div.informacion > div#informacionRes {
+	flex-basis:40%;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+div.informacion > div#informacionFicha {
+	flex-basis:25%;
+}
+
+div.informacion > div#informacionFicha > div#ficha > h3 {
+	margin-bottom: 10%;
+}
+
+@media all and (max-width:803px) {
+	div.informacion {
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+	}
+	
+	div.informacion > * {
+		order: 1;
+	}
+	
+	div.informacion > div#informacionImg {
+		flex-basis: 30%;
+	}
+	
+	div.informacion > div#informacionFicha {
+		flex-basis: 40%;
+	}
+	
+	div.informacion > div#informacionRes {
+		order: 2;
+		flex-basis: 80%;
+		border-top: 1px solid black;
+		border-left: none;
+		border-right: none;
+	}
+}
+
+@media all and (max-width:526px) {
+	div.informacion > div#informacionFicha {
+		flex-basis: 60%;
+		border-top: 1px solid black;
+		text-align: center;
+	}
+	
+	div.informacion > div {
+		padding: 5% 0 5% 0;
+	}
+}
+
+@media all and (max-width:300px) {
+	div.informacion > div#informacionImg > div#imgPortada > img {
+		height: 100%;
+		width: 90%;
+	}
+	div.informacion > div#informacionImg > div#imgPortada {
+		height: 400px;
+		width: 200px;
+	}
+	
+	footer {
+		padding: 20px 0 20px 0;
+	}
+}

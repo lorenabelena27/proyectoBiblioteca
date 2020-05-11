@@ -1,7 +1,22 @@
+div#libros_listar {
+	display: block;
+}
+
 div.libros#libros, div.libros#libros_busqueda {
 	display: flex;
 	flex-wrap: wrap;
+}
+
+div.libros#libros {
 	justify-content: start;
+}
+
+div.libros#libros_busqueda {
+	justify-content: center;
+}
+
+div.libros#libros {
+	justify-content: center;
 }
 
 div.libro{
@@ -121,7 +136,7 @@ li.pag_actual > p {
 	text-align: center;
 	margin: 10px 0;
 }
-
+/*
 div.libros > div.libro div.fichaTecnica {
 	position: absolute;
 	color: rgb(170 ,165, 136);
@@ -189,7 +204,7 @@ div.informacion > div#informacionFicha {
 
 div.informacion > div#informacionFicha > div#ficha > h3 {
 	margin-bottom: 10%;
-}
+}*/
 
 div#busqueda > div#cerrar_busqueda {
 	padding: 1%;
@@ -248,10 +263,6 @@ div.vertical-oculto#menuFiltros *{
 	top: 0;
 }
 
-.vertical-menu {
-	margin-right: 5%;
-}
-
 body > div.wrapper#hoja > div#libros_listar > div.vertical-menu#menuFiltros span {
 	display: block;
 	width: 100%;
@@ -284,4 +295,146 @@ div.informacion > div#estadoLibro {
 	padding: 3%;
 	text-align: center;
 	display: none;
+}
+@media all and (max-width:1093px) {
+	
+	div#libros_listar > div#menuFiltros > h2{
+		font-size:26px;
+	}
+	
+	div#libros > div.libro, div#libros_busqueda > div.libro {
+		flex-basis: 20%;
+	}
+}
+@media all and (max-width:977px) {
+	div#libros_listar > div#menuFiltros > h2{
+		font-size: 25px;
+	}
+}
+
+@media all and (max-width:888px) {
+	
+	div#libros_listar > div#menuFiltros > h2{
+		font-size: 22px;
+	}
+	
+	div#libros > div.libro {
+		flex-basis: 27%;
+	}
+	
+	div.libros#libros_busqueda > .libro > .atras > h2 {
+		font-size: 23px;
+	}
+	
+}
+
+@media all and (max-width:789px) {
+	div#libros_listar > div#menuFiltros > h2{
+		font-size: 19px;
+	}
+	
+	.atras > h2 {
+		font-size: 23px;
+	}
+	
+	.atras > h4 {
+		font-size: 19px;
+	}
+	
+	div#libros_busqueda > div.libro {
+		flex-basis: 27%;
+	}
+}
+
+@media all and (max-width:695px) {
+	
+	div#libros_listar > div#menuFiltros, div#libros_listar > div#libros , div#libros_listar > div#paginacion {
+		flex-basis: 100%;
+	}
+	
+	div.sinFiltro#libros_listar {
+		display: block;
+	}
+	
+	div.conFiltro#libros_listar {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.vertical-menu, .vertical-oculto {
+		display: flex;
+		position: static;
+	}
+	
+	div#libros_listar > div#menuFiltros {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	div#libros_listar > div#menuFiltros > h2{
+		flex-basis: 100%;
+		text-align: center;
+		
+	}
+	
+	div#libros_listar > div#menuFiltros > span{
+		flex-basis: 32.5%;
+	}
+	
+}
+
+@media all and (max-width:590px) {
+	.flex-nav > ul > li.prog {
+		display: none;
+	}
+	
+	.flex-nav > ul > li.menu {
+		display: block;
+	}
+	
+	.flex-nav li.busqueda, .flex-nav > ul > li.menu {
+		flex-basis: 50%;
+	}
+	
+	div#menuOculto {
+		display: none;
+		flex-direction: column;
+
+	}
+	
+	div#menuOculto > div.progOculto {
+		flex: 1;
+		background:rgba(0,0,0,0.7);
+		text-align: center;
+	}
+	
+	div#libros > div.libro, div#libros_busqueda > div.libro {
+		flex-basis: 27%;
+	}
+}
+
+@media all and (max-width:488px) {
+	
+	div#libros > div.libro, div#libros_busqueda > div.libro {
+		flex-basis: 40%;
+	}	
+}
+
+@media (max-width: 408px){
+	div#libros > div.libro, div#libros_busqueda > div.libro {
+		flex-basis: 45%;
+	}
+}
+
+@media (max-width: 356px){
+	
+	div#libros > div.libro, div#libros_busqueda > div.libro {
+		flex-basis: 60%;
+	}
+
+	.flex-nav > ul > li.busqueda {
+		flex-basis: 89.3%;
+		padding: 5% 0 0 0;
+	}
+
 }

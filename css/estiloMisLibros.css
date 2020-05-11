@@ -65,7 +65,7 @@ div#misLibros > div#tablaPrestamos{
 div#misLibros > div#tablaReservas {
 	background: rgb(0,0,0,0.35);
 	display:flex;
-	width: 40%;
+	width: 45%;
 	margin-bottom: 40px;
 }
 
@@ -88,7 +88,7 @@ div#misLibros > div#tablaPrestamos > div.cabeceraTabla > #cabeceraLibroP {
 }
 
 div#misLibros > div#tablaReservas > div.cabeceraTabla > #cabeceraLibroR {
-	flex: 2.82;
+	flex: 2.7;
 }
 
 div#misLibros > * > div.libroMisLibros > div.infoMisLibros {
@@ -115,10 +115,17 @@ div#misLibros > * > * {
 	width: 50%;
 }
 
-div#misLibros > * > div.libroMisLibros > div.propImg {
-	flex: 0.8;
+div#misLibros > div#tablaPrestamos > div.libroMisLibros > div.propImg {
 	border: 1px solid black;
 	border-collapse: collapse;
+}
+
+div#misLibros > div#tablaPrestamos > div.libroMisLibros > div.propImg {
+	flex: 0.8;
+}
+
+div#misLibros > div#tablaReservas > div.libroMisLibros > div.propImg {
+	flex: 0.7;
 }
 
 div#misLibros > * > div.libroMisLibros > div > img {
@@ -132,4 +139,67 @@ div#misLibros > h2{
 
 div#misLibros > h2 > a {
 	color:rgb(148,216,233);
+}
+
+@media all and (max-width:977px) {
+	div#misLibros > div#tablaPrestamos {
+		width: 60%;
+	}
+	
+	div#misLibros > div#tablaReservas {
+		width: 55%;
+	}
+}
+
+@media all and (max-width:888px) {
+	
+}
+@media all and (max-width:803px) {
+	div#misLibros > div#tablaPrestamos {
+		width: 80%;
+	}
+	
+	div#misLibros > div#tablaReservas {
+		width: 75%;
+	}
+}
+
+@media all and (max-width:590px) {
+	div#misLibros > div#tablaPrestamos, div#misLibros > div#tablaReservas {
+		width: 100%;
+	}
+	
+	div#misLibros > * > div.libroMisLibros > div.infoMisLibros-titulo {
+		flex: 1.4;
+	}
+	
+	div#misLibros > div#tablaPrestamos > div.cabeceraTabla > #cabeceraLibroP {
+		flex: 2.22;
+	}
+	
+	div#misLibros > div#tablaReservas > div.cabeceraTabla > #cabeceraLibroR {
+		flex: 2;
+	}
+	
+	div#misLibros > div#tablaReservas > div.libroMisLibros > div.propImg {
+		flex: 0.6;
+	}
+}
+
+@media all and (max-width:440px) {
+	div#misLibros > * > div.libroMisLibros > * {
+		font-size: 1.2em;
+	}
+}
+
+@media all and (max-width:408px) {
+	div#misLibros > * > div.libroMisLibros > * {
+		font-size: 1.1em;
+	}
+}
+
+@media all and (max-width:362px) {
+	div#misLibros > * > div.libroMisLibros > * {
+		font-size: 1em;
+	}
 }
