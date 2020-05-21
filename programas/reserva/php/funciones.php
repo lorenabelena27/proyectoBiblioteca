@@ -2,7 +2,7 @@
 function reserva($dni,$codigo){
 	$con= ConectaBD::getInstance();
 	//COMPROBAR SI EL USUARIO ESTA SANCIONADO
-	if ( !( $query = $con->prepare( "select dni from sancionados where dni=:dni" ) ) ){
+	if ( !( $query = $con->prepare( "select dni from Sancionados where dni=:dni" ) ) ){
 		echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 	}elseif ( ! $query->bindParam( ":dni", $dni) ) { 
 		echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -12,7 +12,7 @@ function reserva($dni,$codigo){
 		//SI NO ESTA SANCIONADO
 		if(empty($resultado)){
 			//COMPROBAR SI EL USUARIO TIENE EL LIBRO PRESTADO
-			if ( !( $query = $con->prepare( "select dni from prestamos where dni=:dni and cod_libro=:cod_libro" ) ) ){
+			if ( !( $query = $con->prepare( "select dni from Prestamos where dni=:dni and cod_libro=:cod_libro" ) ) ){
 			echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 			}elseif ( ! $query->bindParam( ":dni", $dni) ) { 
 				echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -24,7 +24,7 @@ function reserva($dni,$codigo){
 				//SI NO TIENE EL LIBRO PRESTADO
 				if(empty($resultado)){
 					//COMPROBAR SI TIENE EL LIBRO RESERVADO
-					if ( !( $query = $con->prepare( "select dni from lista_espera where dni=:dni and codigo=:cod_libro" ) ) ){
+					if ( !( $query = $con->prepare( "select dni from Lista_espera where dni=:dni and codigo=:cod_libro" ) ) ){
 					echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 					}elseif ( ! $query->bindParam( ":dni", $dni) ) { 
 						echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -35,7 +35,7 @@ function reserva($dni,$codigo){
 						$resultado= $query ->fetchAll(PDO::FETCH_ASSOC);
 						//SI NO LO TIENE RESERVADO
 						if(empty($resultado)){
-							if ( !( $query = $con->prepare( "select disponible from libros where cod_libro=:codigo" ) ) ){
+							if ( !( $query = $con->prepare( "select disponible from Libros where cod_libro=:codigo" ) ) ){
 							echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 						}elseif ( ! $query->bindParam( ":codigo", $codigo) ) { 
 							echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -57,7 +57,7 @@ function reserva($dni,$codigo){
 								//NO HAY DISPONIBLES
 								//¿HAY RESERVADOS?
 								
-								if ( !( $query = $con->prepare( "select fecha from lista_espera where codigo=:codigo and id_reserva = (select max(id_reserva) from lista_espera where codigo=:codigo)" ) ) ){
+								if ( !( $query = $con->prepare( "select fecha from Lista_espera where codigo=:codigo and id_reserva = (select max(id_reserva) from Lista_espera where codigo=:codigo)" ) ) ){
 									echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 								}elseif ( ! $query->bindParam( ":codigo", $codigo) ) { 
 									echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -69,7 +69,7 @@ function reserva($dni,$codigo){
 										//RESERVA CON FECHA FIN DEL PRIMER PRESTAMO
 										//echo json_encode("NO HAY RESERVAS");
 										
-										if ( !( $query = $con->prepare( "select fecha_devolucion from prestamos where cod_libro=:codigo and id_prestamo = (select min(id_prestamo) from prestamos where cod_libro=:codigo)" ) ) ){
+										if ( !( $query = $con->prepare( "select fecha_devolucion from Prestamos where cod_libro=:codigo and id_prestamo = (select min(id_prestamo) from Prestamos where cod_libro=:codigo)" ) ) ){
 											echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 										}elseif ( ! $query->bindParam( ":codigo", $codigo) ) { 
 											echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -87,17 +87,17 @@ function reserva($dni,$codigo){
 										}
 										
 									}else{
-										//echo json_encode("HAY RESERVAS");
+										/
 										//SI
 									//SELECT DE LA FECHA DE LA ULTIMA RESERVA (FECHA Y COUNT)
 									//$fecha = fecha de la ultima reserva
 									//$nReservas = nº reservas para esa fecha
 									
 									//Y FECHA FIN
-										if ( !( $query = $con->prepare( "select count(fecha) as reservas, fecha , fecha_fin from lista_espera
+										if ( !( $query = $con->prepare( "select count(fecha) as reservas, fecha , fecha_fin from Lista_espera
 																		where codigo=:codigo
-																		and fecha = (select fecha from lista_espera 
-																					where id_reserva = (select max(id_reserva) from lista_espera where  codigo=:codigo))" ) ) ){
+																		and fecha = (select fecha from Lista_espera 
+																					where id_reserva = (select max(id_reserva) from Lista_espera where  codigo=:codigo))" ) ) ){
 											echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 										}elseif ( ! $query->bindParam( ":codigo", $codigo) ) { 
 											echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -110,7 +110,7 @@ function reserva($dni,$codigo){
 											//$fecha fin = $resul HECHO
 											//¿HAY MAS PRESTAMOS QUE ACABEN EN ESA FECHA?
 											
-											if ( !( $query = $con->prepare( "select count(fecha_devolucion) as prestamos from prestamos
+											if ( !( $query = $con->prepare( "select count(fecha_devolucion) as prestamos from Prestamos
 																		where fecha_devolucion=:fecha
 																		and cod_libro = :codigo" ) ) ){
 												echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
@@ -135,9 +135,9 @@ function reserva($dni,$codigo){
 													//NO
 													//¿HAY ALGUN PRESTAMO QUE ACABE MAS TARDE?
 													
-													if ( !( $query = $con->prepare( "select fecha_devolucion from prestamos
+													if ( !( $query = $con->prepare( "select fecha_devolucion from Prestamos
 																		where cod_libro=:codigo
-																		and id_prestamo = (select min(id_prestamo) from prestamos where fecha_devolucion > :fecha and cod_libro=:codigo)" ) ) ){
+																		and id_prestamo = (select min(id_prestamo) from Prestamos where fecha_devolucion > :fecha and cod_libro=:codigo)" ) ) ){
 														echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 													}elseif ( ! $query->bindParam( ":fecha", $fechaUltimaR) ) { 
 														echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -163,7 +163,7 @@ function reserva($dni,$codigo){
 															//$fechaFinUltimaR
 															//count reservas que acaban en fechaUltimaR
 															//MINIMA FECHA EN RESERVAS DE ULTIMA RESERVA fecha_fin > $fechaUltimaR y cuantas
-															if ( !( $query = $con->prepare( "select count(id_reserva) from lista_espera where fecha_fin=:fechaUltimaR and codigo=:codigo" ) ) ){
+															if ( !( $query = $con->prepare( "select count(id_reserva) from Lista_espera where fecha_fin=:fechaUltimaR and codigo=:codigo" ) ) ){
 																echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 															}elseif ( ! $query->bindParam( ":fechaUltimaR", $fechaUltimaR) ) { 
 																echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -175,15 +175,14 @@ function reserva($dni,$codigo){
 																$numReservasFin= intval($resultado[0]["count(id_reserva)"]);
 																if($numReservasFin == 0){
 																	//SI ES 0 SE REALIZA UNA RESERVA CON FECHA = FECHA FIN DE LA PRIMERA RESERVA
-																	if ( !( $query = $con->prepare( "select fecha_fin from lista_espera where 
-																											id_reserva=(select min(id_reserva) from lista_espera where codigo = :codigo)" ) ) ){
+																	if ( !( $query = $con->prepare( "select fecha_fin from Lista_espera where 
+																											id_reserva=(select min(id_reserva) from Lista_espera where codigo = :codigo)" ) ) ){
 																		echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 																	}elseif ( ! $query->bindParam( ":codigo", $codigo) ) { 
 																		echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
 																	}else{
 																		$query->execute();
 																		$resultado=$query ->fetchAll(PDO::FETCH_ASSOC);
-																		//echo json_encode($resultado);
 																		$fecha=$resultado[0]["fecha_fin"];
 																		$respuesta = array();
 																		array_push($respuesta,"RESERVAR");
@@ -200,7 +199,7 @@ function reserva($dni,$codigo){
 																		echo json_encode($respuesta);
 																	}else{
 																		//NO --> RESERVA CON FECHA = FECHA FIN ULTIMA RESERVA
-																		if ( !( $query = $con->prepare( "select min(fecha_fin) from lista_espera where 
+																		if ( !( $query = $con->prepare( "select min(fecha_fin) from Lista_espera where 
 																											fecha_fin >:fechaUltimaR and codigo=:codigo" ) ) ){
 																			echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 																		}elseif ( ! $query->bindParam( ":fechaUltimaR", $fechaUltimaR) ) { 
@@ -235,15 +234,16 @@ function reserva($dni,$codigo){
 				}
 			}
 		}else{
-			$respuesta = "SANCIONADO";
 			echo json_encode("SANCIONADO");
 		}
 	}
 }
+//funcion para resrvar un libro
 function reservarLibro($dni,$codigo,$fecha){
 	$con= ConectaBD::getInstance();
 	$fecha_fin = date("Y-m-d",strtotime($fecha."+ 15 days"));
-	if ( !( $query = $con->prepare( "INSERT INTO lista_espera(dni,codigo,fecha,fecha_fin) VALUES (:dni,:codigo,:fecha,:fecha_fin)" ) ) ){
+	//cuando el libro no esta disponible se inserta en lista de espera 
+	if ( !( $query = $con->prepare( "INSERT INTO Lista_espera(dni,codigo,fecha,fecha_fin) VALUES (:dni,:codigo,:fecha,:fecha_fin)" ) ) ){
 		echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 	}elseif ( ! $query->bindParam( ":dni", $dni) ) { 
 		echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -264,10 +264,11 @@ function reservarLibro($dni,$codigo,$fecha){
 		
 	}
 }
-
+//funcion para prestar libro
 function prestarLibro($dni,$codigo,$fechaIni,$fechaFin){
 	$con= ConectaBD::getInstance();
-	if ( !( $query = $con->prepare( "INSERT INTO prestamos(cod_libro,fecha_salida,fecha_devolucion,dni) VALUES (:codigo,:fechaIni,:fechaFin,:dni)" ) ) ){
+	//se inserta el prestamo en la tabla Prestamo
+	if ( !( $query = $con->prepare( "INSERT INTO Prestamos(cod_libro,fecha_salida,fecha_devolucion,dni) VALUES (:codigo,:fechaIni,:fechaFin,:dni)" ) ) ){
 		echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 	}elseif ( ! $query->bindParam( ":codigo", $codigo) ) { 
 		echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
@@ -279,7 +280,8 @@ function prestarLibro($dni,$codigo,$fechaIni,$fechaFin){
 		echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
 	}else{
 		$query->execute();
-		if ( !( $query = $con->prepare( "update libros set disponible=disponible-1 where cod_libro=:codigo " ) ) ){
+		//se actualiza la tabla libros se modifica los disponibles 
+		if ( !( $query = $con->prepare( "update Libros set disponible=disponible-1 where cod_libro=:codigo " ) ) ){
 			echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 		}elseif ( ! $query->bindParam( ":codigo", $codigo) ) { 
 			echo "Falló la ejecución: " . $query->errno . "- " . $query->error;

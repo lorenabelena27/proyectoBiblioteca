@@ -1,5 +1,5 @@
 document.addEventListener("readystatechange",cargarEvento,false);
-
+//funcion para cargar el evento del enlace y las funciones
 function cargarEvento(){
 	
 	if(document.readyState=="interactive"){
@@ -8,13 +8,13 @@ function cargarEvento(){
 		document.getElementById("volverI").addEventListener("click",volverI,false);
 	}
 }
-
+//carga el evento para las ultimasPublicaciones
 function eventoImg(){
 	for(var i=0;i<document.getElementsByClassName("imgUltimasP").length;i++){
 		document.getElementsByClassName("imgUltimasP")[i].addEventListener("click",fichaUltimaP,false);
 	}
 }
-
+//hace la peticion a php para las ultimasPublicaciones
 function ultimasPublicaciones(){
 	var peticion=new XMLHttpRequest();
 	peticion.addEventListener("readystatechange",gestionarUltimasPublicaciones,false);
@@ -23,17 +23,18 @@ function ultimasPublicaciones(){
 	var datos = "x= ";
 	peticion.send(datos);
 }
-
+//gestiona la la respuesta
 function gestionarUltimasPublicaciones(evento){
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
 		respuesta = JSON.parse(evento.target.responseText);
 		mostrarUltimasPublicaciones(respuesta);
 	}
 }
-
+//funcion para la mostra la respuesta
 function mostrarUltimasPublicaciones(respuesta){
 	libros = respuesta;
 	document.getElementById("ultimasPublicaciones").innerHTML="";	
+	//muestra las portada y la informacion de los libros
 	for(var i=0;i<libros.length;i++){
 		var div=document.createElement("div");
 		div.setAttribute("class","libroPubli");
@@ -64,6 +65,7 @@ function mostrarUltimasPublicaciones(respuesta){
 		var spanCodigo = document.createElement("span");
 		spanCodigo.setAttribute("class","oculto");
 		spanCodigo.innerHTML = libros[i]["cod_libro"];
+		//los span con la informacion se hacen hijos de div padre
 		div.appendChild(img2);
 		div.appendChild(spanTitulo);
 		div.appendChild(spanAutor);
@@ -76,7 +78,7 @@ function mostrarUltimasPublicaciones(respuesta){
 		document.getElementById("ultimasPublicaciones").appendChild(div);
 	}
 }
-
+//funcion cambia el borde de los libros que son enlaces para diferenciarlos de las imagenes
 function cambiarBordeImg(){
 	for(var i=0;i<document.getElementsByClassName("imgUltimasP").length;i++){
 		if(document.getElementsByClassName("imgUltimasP")[i].style.backgroundColor=="black"){
@@ -97,6 +99,7 @@ function cambiarBordeImg(){
 	setTimeout(cambiarBordeImg, 2000);
 }
 
+//muestra los datos de los libros
 function fichaUltimaP(){
 	var ruta=this.getAttribute("src");
 	var titulo=this.nextSibling.innerHTML;
@@ -119,12 +122,12 @@ function fichaUltimaP(){
 	document.getElementById("volverB").style.display="none";
 	document.getElementById("volverI").style.display="block";
 }
-
+//funcion para volver al inicio
 function volverI(){
 	document.getElementById("info").style.display="none";
 	document.getElementById("inicio").style.display="block";
 }
-
+//funcion para los libros recomendados se envia la peticion a php
 function librosRecomendados(){
 	var myobj={recomendados:true};
 	myobj=JSON.stringify(myobj);
@@ -135,22 +138,23 @@ function librosRecomendados(){
 	var datos = "x="+myobj;
 	peticion.send(datos);
 }
-
+//gestiona la respuesta para los libros recomendados
 function gestionarLibrosRecomendados(evento){
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
 		respuesta = JSON.parse(evento.target.responseText);
 		mostrarLibrosRecomendados(respuesta);
 	}
 }
-
+//funcion para mostrar los libros recomendados
 function mostrarLibrosRecomendados(respuesta){
+	//se comprueba la respuesta 
 	if(respuesta[0]=="TENDENCIAS"){
 		document.getElementById("h1Recomendados").innerHTML=respuesta[0];
 		libros = respuesta[1];
 	}else{
 		libros = respuesta;
 	}
-	
+	//se muestra la portada de libros y los datos
 	document.getElementById("librosRecomendados").innerHTML="";	
 	for(var i=0;i<libros.length;i++){
 		var div=document.createElement("div");
@@ -182,6 +186,7 @@ function mostrarLibrosRecomendados(respuesta){
 		var spanCodigo = document.createElement("span");
 		spanCodigo.setAttribute("class","oculto");
 		spanCodigo.innerHTML = libros[i]["cod_libro"];
+		//los span con la informacion se hacen hijos de div padre
 		div.appendChild(img2);
 		div.appendChild(spanTitulo);
 		div.appendChild(spanAutor);

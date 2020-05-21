@@ -1,0 +1,108 @@
+div#formuDevolver {
+	margin: auto;
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+	padding: 5%;
+	font-size: 1.2em;
+	height: -webkit-fill-available;
+
+}
+div#formuDevolver > form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div#formuAlta > form  , div#formuRecu > form , div#formuCambio > form  {
+	width: 100%;
+}
+
+div#formuAlta  > form > label , div#formuRecu > form > label , div#formuCambio > form > label {
+	width: 25%;
+}
+
+div#formuAlta >  form > input , div#formuRecu >  form > input , div#formuCambio >  form > input{
+	color: black;
+}
+
+div#formuAlta  >  form > input#id_enviar , div#formuRecu >  form > input#id_enviarR , div#formuCambio >  form > input#id_enviarC {
+	float: right;
+	margin-right: 20.5%;
+}
+
+input{
+    color: black;
+}
+.error {
+	display: block;
+	position: relative;
+	z-index: 1;
+	padding: 15px 5px 5px 5px;
+	border-radius: 10px;
+	color: white;
+	width: 200px;
+	text-align: center; 
+	font-size: 12px;
+	background: RGB(194, 46, 79);
+	margin: auto;
+	margin-bottom:10px;
+}
+
+.error::after {
+    content: '';
+    border-bottom: 15px solid RGB(194, 46, 79);
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    position: absolute;
+    left: 45%;
+    top: -14px;
+	
+}
+
+.ocultar {
+	display: none;
+}
+
+div#formuAlta  > h3 > a , div#formuRecu  > h3 > a , div#formuCambio  > h3 > a {
+	color: white;
+	text-decoration: underline;
+	font-weight: bold;
+	background-color: rgb(0,0,0,0.3);
+}
+
+@media all and (max-width:488px) {
+	
+	div#formuAlta , div#formuRecu , div#formuCambio  {
+		margin: 0;
+		text-align: center;
+	}
+	
+	div#formuAlta > form  , div#formuRecu  > form , div#formuCambiobio  > form {
+		display: flex;
+		flex-direction: column;
+		padding-left: 20%;
+		text-align: left;
+	}
+	
+	div#formuAlta  > form > label , div#formuRecu  > form > label , div#formuCambiobio  > form > label {
+	width: 50%;
+}
+	
+	div.wrapper > div#formuAlta > form > input , div#formuRecu  > form > input , div#formuCambiobio  > form > input{
+		width: 211px;
+	}
+	
+	.error {
+		margin: -10px 0px 10px 0px;
+	}
+	
+	div.wrapper > div#formuAlta  >  form > input#id_enviar , div#formuRecu >  form > input#id_enviarR , div#formuCambiobio >  form > input#id_enviarC {
+		margin-left: 150px;
+		width: 63.59px;
+	}
+	
+	div.wrapper > div#formuAlta > h3 , div#formuRecu > h3 , div#formuCambiobio > h3{
+		font-size: 20px;
+	}
+
+}
+

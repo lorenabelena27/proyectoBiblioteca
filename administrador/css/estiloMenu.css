@@ -1,0 +1,95 @@
+@font-face {
+	font-family: GuldScript_PersonalUseOnly;
+	src: url("../fuentes/GuldScript_PersonalUseOnly.ttf");
+}
+.flex-nav {
+	display: block;
+	flex-direction:row;
+	flex-wrap: wrap;
+}
+.flex-nav h1 {
+	float: left;
+	height: 57px;
+	padding-left: 5px;
+	padding-top: 10px;
+	font-family: helvetic;
+}
+.flex-nav ul {
+	font-size: 0.9em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	top: 0;
+}
+.flex-nav li.prog {
+	flex-basis: 34%;
+}
+.flex-nav > ul > li.prog {
+	color:white;
+	font-weight: 100;
+	letter-spacing: 0.7px;
+	text-decoration: none;
+	background:rgba(0,0,0,0.4);
+	padding:20px 5px;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	transition:all 0.5s;
+}
+	
+.flex-nav > ul > li.prog > a{
+	color:white;
+	text-decoration: none;
+}
+
+.flex-nav > ul > li.prog > a > div, .flex-nav > ul > li > div {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+body > div.wrapper#hoja > nav.flex-nav#menuUsu > ul > li.prog > a > div > h4, body > div.wrapper#hoja > nav.flex-nav#menuUsu > ul > li.menu > div > h4,  body > div.wrapper#hoja > nav.flex-nav#menuUsu > div h4 {
+	color:lightgrey;
+	font-family: GuldScript_PersonalUseOnly;
+	font-size:30px;
+}
+
+.flex-nav > ul > li:hover {
+	background:rgba(0,0,0,0.1);
+	text-decoration: none;
+}
+.flex-nav > ul > li > input {
+	color:black;
+}
+
+#error_busq {
+	color: white;
+}
+
+.flex-nav > ul > li {
+	background:rgba(0,0,0,0.4);
+	padding:20px;
+}
+
+
+@media all and (max-width:408px) {
+	body > div.wrapper#hoja {
+		background:rgba(0,0,0,0.3);
+	}
+	
+	.flex-nav ul {
+	flex-direction: column;
+}
+
+}
+
+@media all and (max-width:356px) {
+	nav.flex-nav > ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}

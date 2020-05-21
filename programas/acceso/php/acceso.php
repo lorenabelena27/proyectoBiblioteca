@@ -8,7 +8,7 @@ $email= filtrado($peticion->email);
 $pas= filtrado($peticion->contra);
 $error=false; 
 $respuesta=array();
-
+//se comprueban los datos enviados del js
 if(empty($email)){
 	array_push($respuesta,"Debes introducir un Email");
 	$error=true;
@@ -18,6 +18,7 @@ if(empty($pas)){
 	array_push($respuesta,"Debes introducir una Contraseña");
 	$error=true;
 }
+//si todo los datos estan bien se llama a la funcion
 if(empty($error)){
 	acceso($email,$pas);
 }else{

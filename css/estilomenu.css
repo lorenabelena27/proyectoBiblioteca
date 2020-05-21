@@ -110,7 +110,6 @@ div#menuOculto > div.progOculto:hover {
 
 @media all and (max-width:408px) {
 	body > div.wrapper#hoja {
-		color: aqua;
 		background:rgba(0,0,0,0.3);
 	}
 
@@ -163,4 +162,64 @@ div#menuOculto > div.progOculto:hover {
 	.wrapper > .flex-nav > ul > li.busqueda {
 		padding: 5% 0 5% 0;
 	}
+}
+
+@media screen and (max-device-width:500px) and (orientation : portrait){
+	nav.flex-nav > ul > li.toggleNav#btn-filtrar {
+		font-size: 9em;
+	}
+	
+	.flex-nav > ul > li > input {
+		color: black;
+		font-size: 1.2em;
+	}
+
+	.flex-nav > ul > li.prog {
+		display: none;
+	}
+	
+	.flex-nav > ul > li.menu {
+		display: block;
+	}
+	
+	body > div.wrapper#hoja > nav.flex-nav#menuUsu > ul > li.menu > div > h4 {
+		font-size: 7em;
+	}
+	
+	.flex-nav li.busqueda {
+		/* align-items: center; */
+		display: flex;
+		flex-wrap: wrap;
+		padding: 2em 0;
+		justify-content: center;
+		font-size: 2em;
+	}
+	
+	.flex-nav li.busqueda input[type=button] {
+		font-size: 1.5em;
+	}
+	
+	.flex-nav li.busqueda, .flex-nav > ul > li.menu {
+		flex-basis: 50%;
+	}
+	
+	#error_busq {
+		color: white;
+		font-size: 2em;
+	}
+	
+	div#menuOculto {
+		flex-direction: column;
+	}
+	
+	div#menuOculto > div.progOculto {
+		flex: 1;
+		background: rgba(0,0,0,0.7);
+		text-align: center;
+	}
+	
+	body > div.wrapper#hoja > nav.flex-nav#menuUsu > div h4 {
+		font-size: 6em;
+	}
+	
 }

@@ -30,6 +30,10 @@ if(isset($_SESSION['usuario'])){
 		include "programas/alta/alta.inc";
 	}elseif ($_SERVER['QUERY_STRING'] == "recuperar") {
 		include "programas/recuperar/recuperar.inc";
+	}elseif ($_SERVER['QUERY_STRING'] == "admin") {
+		header('Location: administrador/index.php');
+	}else{
+		header('Location: index.php');
 	}
 }
 

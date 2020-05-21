@@ -1,4 +1,5 @@
-<?php
+﻿<?php
+//validación del email
 function validaEmail($email){
 	$resp = false;
 	$patron="/^([a-zA-Z])+([\w\._])*([a-zA-Z])*([0-9])*@/";	
@@ -17,6 +18,7 @@ function validaEmail($email){
 	}
 	return $resp;
 }
+//validación de la contraseña
 function validaPass($contrasena){
 	$patronPass="/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/";
 	if(preg_match($patronPass,$contrasena)==false){
@@ -25,6 +27,7 @@ function validaPass($contrasena){
 		return true;
 	}
 }
+//validación del dni
 function validaDni($dni){
 	$patron="/^[0-9]{8}[A-Za-z]{1}$/"; 
 	if (preg_match($patron,$dni)==true){ 
@@ -41,21 +44,32 @@ function validaDni($dni){
 		return false;
 	}
 }
+//validacion del nombre
+function validaNom($nombre){
+	$patronPass="/^[a-zA-Z]$/";
+	if(preg_match($patronPass,$nombre)==false){
+		return false;
+	}else{
+		return true;
+	}
+}
+//funcion para insertar el usuario en la tabla Usuarios
 function alta($nombre,$apellidos,$dni,$email,$fecha,$pas){
 	$con= ConectaBD::getInstance();
 	$dni=strtoupper($dni);
-	if ( !( $query = $con->prepare( "select nombre from usuarios where dni=:dni " ) ) ){
+	//comprueba si el usuario ya existe
+	if ( !( $query = $con->prepare( "select nombre from Usuarios where dni=:dni " ) ) ){
 			echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 		}elseif ( ! $query->bindParam( ":dni", $dni) ) { 
 			echo "Falló la ejecución: " . $query->errno . "- " . $query->error;
 		}else{
 			$query->execute();
 			$resultado= $query ->fetchAll(PDO::FETCH_ASSOC);
-			
+			//si no esiste
 			if(empty($resultado)){
 				$pass=Password::hashs($pas);
-				
-				if ( !( $query = $con->prepare( "INSERT INTO usuarios(nombre, apellidos, dni, email, fecha_nacimiento, contraseña) VALUES (:nombre,:apellidos,:dni,:email,:fecha,:pass)" ) ) ){
+				//inserta el usuario en la tabla Usuarios
+				if ( !( $query = $con->prepare( "INSERT INTO Usuarios(nombre, apellidos, dni, email, fecha_nacimiento, contraseña) VALUES (:nombre,:apellidos,:dni,:email,:fecha,:pass)" ) ) ){
 					echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 				}elseif ( ! $query->bindParam( ":nombre", $nombre) ) { // Vincula parámetros con variables echo "Falló la vinculación de parámetros: " . $orden->errno . "- " . $orden->error; }
 						echo "Falló la ejecución: " . $query->errno . "- " . $query->error;

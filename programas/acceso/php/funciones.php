@@ -1,7 +1,9 @@
 <?php
+//funcion de acceso 
 function acceso($email,$pass){
 	$con= ConectaBD::getInstance();
-	if ( !( $query = $con->prepare( "select nombre, contraseña ,dni from usuarios where email=:email" ) ) ){
+	//se comprueba si el usuario esta en la tabla Usuarios
+	if ( !( $query = $con->prepare( "select nombre, contraseña ,dni from Usuarios where email=:email" ) ) ){
 		echo "Falló la preparacioón: " . $con->errno . " - " . $con->error; 
 	}elseif ( ! $query->bindParam( ":email", $email) ) { 
 		echo "Falló la ejecución: " . $query->errno . "- " . $query->error;

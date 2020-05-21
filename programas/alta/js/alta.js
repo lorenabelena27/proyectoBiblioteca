@@ -1,11 +1,12 @@
 document.addEventListener("readystatechange",cargarEvento,false);
-
+//carga el evento del boton
 function cargarEvento(){
 	
 	if(document.readyState=="interactive"){
 		document.getElementById("id_enviar").addEventListener("click",peticionAlta,false);
 	}
 }
+//validacion del dni 
 function validaDni(dni){
 	
 	var patronDNI=/^[0-9]{8}[A-Za-z]$/;
@@ -25,6 +26,7 @@ function validaDni(dni){
 			}
 	}
 }
+//validacion del email
 function validaEmail(email){
 	
 	var patronEmail=/^([a-zA-Z])+([\w\._])*([A-Za-z])*([0-9])*@/;
@@ -42,6 +44,7 @@ function validaEmail(email){
 		}	
 	}
 }
+//validacion de la fecha
 function validaFecha(fecha){
 	
 	var fechaN=new Date(fecha);
@@ -50,7 +53,7 @@ function validaFecha(fecha){
 		return false;
 	}
 }
-
+//validacion de la contraseña
 function validaPass(contrasena){
 	
 	var patronPass=/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
@@ -58,14 +61,29 @@ function validaPass(contrasena){
 		return false;
 	}
 }
+//vaidacion del nombre
+function validaNom(nombre){
+	
+	var patronPass=/^[a-zA-Z]$/
+	if(patronPass.test(nombre)==false){
+		return false;
+	}
+}
+//peticion a php
 function peticionAlta(){
 	
 	var error;
 	var todoBien=false;
 	var nombre=document.getElementById("id_nombre").value;
 	var p0=document.getElementById("error_nombre");
+	//comprobaciones de los datos
 	if(nombre==""){		
 		error="Debes introducir un nombre";
+		document.getElementById("div_error_nombre").className ="error";
+		document.getElementById("div_error_nombre").style.diplay="block";
+		p0.innerHTML=error;
+	}else if(validaNom(nombre)==false){
+		error="El nombre solo puede contener letras";
 		document.getElementById("div_error_nombre").className ="error";
 		document.getElementById("div_error_nombre").style.diplay="block";
 		p0.innerHTML=error;
@@ -81,7 +99,12 @@ function peticionAlta(){
 		document.getElementById("div_error_apellidos").className ="error";
 		document.getElementById("div_error_apellidos").style.diplay="block";
 		p1.innerHTML=error;
-	}else{
+	}else if(validaNom(apellidos)==false){
+		error="Los apellidos solo puede contener letras";
+		document.getElementById("div_error_nombre").className ="error";
+		document.getElementById("div_error_nombre").style.diplay="block";
+		p1.innerHTML=error;
+	else{
 		p1.innerHTML="";
 		document.getElementById("div_error_apellidos").className ="ocultar";
 		todoBien=true;
@@ -155,7 +178,7 @@ function peticionAlta(){
 		document.getElementById("div_error_pass").className ="error";
 		document.getElementById("div_error_pass").style.diplay="block";
 	}else if(validaPass(contrasena)==false){
-		error="La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.";
+		error="La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, minúsculas y al menos una mayúscula.";
 		document.getElementById("div_error_pass").className ="error";
 		document.getElementById("div_error_pass").style.diplay="block";
 		p5.innerHTML=error;
@@ -181,7 +204,7 @@ function peticionAlta(){
 		document.getElementById("div_error_confir").className ="ocultar";
 		todoBien=true;
 	}
-	
+	//si todos los datos estan validados se hace la petición
 	if(todoBien==true){
 		var myobj={nom:nombre,ape:apellidos,dni:dni,email:email,nac:fecha,pass:contrasena,conf:confir}
 		myobj=JSON.stringify(myobj);
@@ -192,7 +215,8 @@ function peticionAlta(){
 		var datos = "x="+myobj;
 		peticion.send(datos);
 	}	
-}	
+}
+//funcion para gestionar la petición	
 function gestionarAlta(evento){
 	
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
@@ -205,10 +229,11 @@ function gestionarAlta(evento){
 			}
         }
 }	
+//respuesta a la petición
 function respuestaAlta(respuesta){
 	alert(respuesta);
 	var email=document.getElementById("id_email").value;
-	document.getElementById("formuAlta").innerHTML="<h2>Registrado con éxito</h2><h3>Se ha enviado un correo a "+email+"</h3><h3>Es posible que haya llegado a la bandeja de spam</h3><h4><a href=\"index.php\">Volver a la página de inicio</a><h4>";	
+	document.getElementById("formuAlta").innerHTML="<h2>Registrado con éxito</h2><h3>Cuando Bibliofa se ponga en contacto con usted </h3><h3>Es posible que llegue un correo a la bandeja de spam</h3><h4><a href=\"index.php\">Volver a la página de inicio</a><h4>";	
 	document.getElementById("formuAlta").style.backgroundColor="rgb(0,0,0,0.3)";
 	
 }

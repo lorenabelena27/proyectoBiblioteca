@@ -1,13 +1,14 @@
 document.addEventListener("readystatechange",cargarEvento,false);
-
+//se carga el evento del boton
 function cargarEvento(){
 	
 	if(document.readyState=="interactive"){
 		document.getElementById("id_enviar1").addEventListener("click",peticionAcceso,false);
 	}
 }
+//se hace la peticion a php
 function peticionAcceso(){
-	
+	//se comprueba  los datos que se recogen del html
 	var email1 =document.getElementById("id_email1").value;
 	var p1=document.getElementById("error_email1");
 	var todoBien=false;
@@ -26,7 +27,7 @@ function peticionAcceso(){
 	}else{
 		todoBien=true;
 	}
-	
+	//si todos los datos estan correctos se realiza la petición
 	if(todoBien==true){
 		var myobj={email:email1,contra:pass1}
 		myobj=JSON.stringify(myobj);
@@ -39,6 +40,7 @@ function peticionAcceso(){
 	}
 	
 }
+//se gestiona la peticion
 function gestionarAcceso(evento){
 	
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
@@ -51,6 +53,7 @@ function gestionarAcceso(evento){
 		}
     }
 }
+//funcion para la respuesta 
 function respuestaAcceso(respuesta){
 	window.location="index.php";
 }

@@ -15,12 +15,19 @@ $fecha=strtotime($fecha_na);
 $hoy= strtotime(date("Y-m-d"));
 $error=false; 
 $respuesta=array();
+//comprobaciones a lado del servidor
 if(empty($nombre)){
 	array_push($respuesta,"Debes introducir un Nombre");
+	$error=true;
+}elseif(validaNom($nombre)==false){
+	array_push($respuesta,"El nombre solo puede contener letras");
 	$error=true;
 }
 if(empty($apellidos)){
 	array_push($respuesta,"Debes introducir un Apellidos");
+	$error=true;
+}elseif(validaNom($apellidos)==false){
+	array_push($respuesta,"Los apellidos solo puede contener letras");
 	$error=true;
 }
 if(empty($dni)){
@@ -69,6 +76,7 @@ if(empty($pass)){
 	array_push($respuesta,"Las contraseñas no coinciden");
 	$error=true;
 }
+//si todos los datos estan validados se llama a la funcion
 if($error==false){
 	
 	alta($nombre,$apellidos,$dni,$email,$fecha_na,$pas);

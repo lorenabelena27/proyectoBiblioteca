@@ -6,6 +6,7 @@ include_once '../../conexion/ConectaBD.php';
 include_once 'funciones.php';
 $peticion=json_decode($_POST['x']);
 $dni=$_SESSION["dni"];
+//dependiendo la peticion de js se llama a una funcion otra
 if(isset($peticion->reserva)){
 	$codigo=$peticion->codigo;
 	reserva($dni,$codigo);

@@ -101,3 +101,68 @@ div#formuAlta  > h3 > a , div#formuRecu  > h3 > a , div#formuCambio  > h3 > a {
 
 }
 
+@media screen and (max-device-width:500px) and (orientation : portrait){
+	div#formuAlta, div#formuRecu, div#formuCambio {
+		margin: 0;
+		backdrop-filter: blur(3px);
+		-webkit-backdrop-filter: blur(3px);
+		padding: 5%;
+		font-size: 4em;
+	}
+	
+	div#formuAlta > form, div#formuRecu > form, div#formuCambiobio > form {
+		display: flex;
+		flex-direction: column;
+		padding-left: 0%;
+		text-align: left;
+		align-items: center;
+	}
+	
+	div#formuAlta > form > input, div#formuRecu > form > input, div#formuCambio > form > input {
+		color: black;
+		width: 70%;
+	}
+	
+	div#formuAlta > form > label, div#formuRecu > form > label, div#formuCambio > form > label {
+		width: 70%;
+	}
+	
+	.error {
+		display: block;
+		position: relative;
+		z-index: 1;
+		padding: 15px 5px 5px 5px;
+		border-radius: 1em;
+		color: white;
+		width: 10em;
+		text-align: center;
+		font-size: 1em;
+		background: RGB(194, 46, 79);
+		margin: auto;
+		margin-bottom: 1em;
+	}
+	
+	.error::after {
+		content: '';
+		border-bottom: 1em solid RGB(194, 46, 79);
+		border-right: 1em solid transparent;
+		border-left: 1em solid transparent;
+		position: absolute;
+		left: 40%;
+		top: -1em;
+	}
+	
+	div#formuAlta > form > input#id_enviar, div#formuRecu > form > input#id_enviarR, div#formuCambio > form > input#id_enviarC {
+		margin-right: 0%;
+		font-size: 1em;
+		width: auto;
+		padding: 0 1em;
+	}
+	
+	div#formuAlta > h3, div#formuRecu > h3  {
+		font-size: 1em;
+		text-align: center;
+	}
+	
+}
+

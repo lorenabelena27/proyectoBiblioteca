@@ -1,0 +1,274 @@
+@font-face {
+	font-family: Fortunates December;
+	src: url("../fuentes/Fortunates December.ttf");
+}
+@font-face {
+	font-family: GuldScript_PersonalUseOnly;
+	src: url("../fuentes/GuldScript_PersonalUseOnly.ttf");
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body > div.wrapper#hoja {
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+	min-height: 100vh;
+}
+
+div.wrapper#hoja > div.bloque0 a{
+	color:rgb(148,216,233);
+}
+
+h1 {
+	margin:0;
+	padding:0;
+	text-align: center;
+}
+
+div.wrapper#hoja >  div.titulo_pag > h1 {
+	font-family: Fortunates December;
+}
+
+body {
+	background: url('../img/fondo.jpg') no-repeat center center fixed;
+	background-size: cover;
+	font-family: sans-serif;
+	margin: 0;
+	background-color: #A7FC96;
+	color: white;
+}
+
+body > div.wrapper#hoja {
+	color: white;
+	background:rgba(0,0,0,0.3);
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body > div.wrapper#hoja > div.bloque0 > div.formulario > form > input {
+	color: black;
+}
+
+.wrapper {
+	box-shadow: 0px 5px 15px 8px #000000;
+	display:flex;
+	flex-direction: column;
+}
+
+section, footer {
+	text-align: center;
+	padding: 20px;
+	color: white;
+	font-weight: 100;
+}
+
+footer {
+	background-color: rgba(0,0,0,0.7); 
+}
+
+footer > p {
+	padding: 5%;
+}
+
+.bloque0 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: start;
+}
+
+.bloque0 {
+	border-bottom: 1px solid white;
+	background: rgba(0,0,0,0.4);
+}
+
+.bloque0 > div > h1 {
+	font-family: Fortunates December;
+	font-size: 130px;
+	padding: 15px;
+}
+
+.bloque0 > div {
+	flex-basis: 100%;
+	text-align: right;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+div.formulario {
+	width: 90%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+div.formulario > form {
+	padding-top: 10%;
+	flex-basis: 100%;
+	width: 100%;
+	height: 90%;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div.formulario > form > label {
+	font-size: 1.5em;
+}
+div.formulario > form > input.inputAcc {
+	margin-bottom: 10px;
+	color: black;
+	
+}
+
+div.formulario > form > input.botonEntrar {
+	margin-bottom: 10px;
+	color: black;
+}
+
+div.wrapper > div#formuDevolver > form > input[type=button] {
+    margin-top: 1em;
+}
+
+footer{
+	bottom: 0;
+	width: 100%;
+}
+
+.oculto {
+	display: none;
+}
+
+@media all and (max-width:1093px) {
+	body > div.wrapper#hoja {
+		background: rgba(0,0,0,0.3);
+	}
+	.bloque0 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	}
+	
+	.bloque0 > div > h1 {
+		font-family: Fortunates December;
+		font-size: 100px;
+		padding: 15px 0 0 0;
+	}
+	
+}
+
+@media all and (max-width:977px) {
+	body > div.wrapper#hoja {
+		background: rgba(0,0,0,0.3);
+	}
+	
+	.bloque0 > div {
+		flex-basis: 45%;
+		text-align: right;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+
+@media all and (max-width:888px) {
+	body > div.wrapper#hoja {
+		background:rgba(0,0,0,0.3);
+	}
+}
+
+
+@media all and (max-width:803px) {
+	body > div.wrapper#hoja {
+		background:rgba(0,0,0,0.3);
+	}
+	
+
+}
+
+@media all and (max-width:488px) {
+	body > div.wrapper#hoja {
+		background:rgba(0,0,0,0.3);
+	}
+
+	.bloque0 > div > h1 {
+		font-size: 80px;
+	}
+}
+
+@media all and (max-width:408px) {
+	body > div.wrapper#hoja {
+		background:rgba(0,0,0,0.3);
+	}
+}
+
+@media all and (max-width:362px) {
+	body > div.wrapper#hoja {
+		background:rgba(0,0,0,0.3);
+	}
+	
+	.bloque0 > div > h1 {
+		font-size: 50px;
+	}
+}
+
+@media screen and (max-device-width:1000px) and (orientation : portrait), screen and (max-device-width:1000px) and (orientation: landscape){
+
+	.bloque0 > div > h1 {
+		font-size: 3em;
+	}
+	.bloque0 > div {
+		flex-basis: 45%;
+		text-align: right;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	
+	.flex-nav ul {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.flex-nav h4 {
+		font-size: 1em;
+	}
+	body > div.wrapper#hoja {
+		font-size: 5em;
+	}
+	
+	div.wrapper > div#inicioAdmin > h1 {
+		font-size: 2em;
+	}
+	
+	div.formulario > form > label {
+		font-size: 1em;
+	}
+	
+	div.formulario > form > input.inputAcc {
+		font-size: 0.8em;
+	}
+	
+	div.formulario > form > input.botonEntrar {
+		font-size: 0.9em;
+	}
+	
+	div.formulario {
+		width: 100%;
+		font-size: 0.7em;
+	}
+
+	div.wrapper > div#formuDevolver {
+		font-size: 0.6em;
+	}
+	
+	div.wrapper > div#formuDevolver > form > input[type=button] {
+		margin-top: 1em;
+	}
+	
+}

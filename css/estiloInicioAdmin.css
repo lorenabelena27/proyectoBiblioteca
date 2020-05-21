@@ -1,0 +1,23 @@
+/**/
+body > div.wrapper#hoja {
+	height: -webkit-fill-available;
+}
+
+body > div.wrapper#hoja > div.bloque0 {
+	display: flex;
+	flex-direction: column;
+}
+
+div.wrapper > div#inicioAdmin {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: auto;
+    text-align: center;
+}
+
+div.wrapper > div#inicioAdmin > h2 {
+	color: white;
+	text-decoration: none;
+}
+

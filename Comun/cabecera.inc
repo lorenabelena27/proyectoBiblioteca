@@ -13,7 +13,7 @@
 			<p id="error_email1"></p>
 			<p id="error_pass1"></p>
 			<br>
-			<p>¿No te has registrado? <a href="?alta">Registrate</a></p>
+			<p>¿No te has registrado? <a href="?alta">Regístrate</a></p>
 			<p>¿Has olvidado tu cotraseña? <a href="?recuperar">Recupérala</a></p>
 		</div>
 	<?php }else{

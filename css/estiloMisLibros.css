@@ -31,13 +31,14 @@ div#misLibros > table img {
 
 /*******************SIN TABLAS*****************/
 div#misLibros {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 5em;
 }
 
-div#misLibros > * {
+div#hab > * {
 	width: 50%;
 	display: flex;
 	flex-direction: column;
@@ -58,13 +59,13 @@ div#misLibros > div{
 
 div#misLibros > div#tablaPrestamos{
 	background: rgb(0,0,0,0.35);
-	display:flex;
+	/*display:flex;*/
 	width: 50%;
 }
 
 div#misLibros > div#tablaReservas {
 	background: rgb(0,0,0,0.35);
-	display:flex;
+	/*display:flex;*/
 	width: 45%;
 	margin-bottom: 40px;
 }
@@ -202,4 +203,22 @@ div#misLibros > h2 > a {
 	div#misLibros > * > div.libroMisLibros > * {
 		font-size: 1em;
 	}
+}
+
+@media screen and (max-device-width:500px) and (orientation : portrait){
+	div#misLibros > div#tablaPrestamos, div#misLibros > div#tablaReservas {
+		width: 100%;
+		font-size: 3em;
+	}
+	
+	div#misLibros > * > div.libroMisLibros > div > img {
+		width: 100%;
+		height: auto;
+	}
+	
+	div#misLibros > h1 {
+		font-size: 6em;
+	}
+
+
 }

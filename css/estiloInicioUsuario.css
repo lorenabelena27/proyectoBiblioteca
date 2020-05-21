@@ -27,7 +27,6 @@ div#ultimasPublicaciones, div#librosRecomendados{
 }
 
 div#ultimasPublicaciones > div.libroPubli, div#librosRecomendados > div.libroPubli {
-	flex-basis: 20%;
 	display: flex;
 	justify-content: center;
 }
@@ -63,7 +62,6 @@ div#libro_semana  > img {
 
 @media all and (max-width:1093px) {
 	body > div.wrapper#hoja {
-		color: blue;
 		background: rgba(0,0,0,0.3);
 	}
 	
@@ -91,14 +89,12 @@ div#libro_semana  > img {
 
 @media all and (max-width:977px) {
 	body > div.wrapper#hoja {
-		color: red;
 		background: rgba(0,0,0,0.3);
 	}
 }
 
 @media all and (max-width:888px) {
 	body > div.wrapper#hoja {
-		color: green;
 		background:rgba(0,0,0,0.3);
 	}
 }
@@ -106,7 +102,6 @@ div#libro_semana  > img {
 
 @media all and (max-width:803px) {
 	body > div.wrapper#hoja {
-		color: yellow;
 		background:rgba(0,0,0,0.3);
 	}
 	
@@ -157,7 +152,6 @@ div#libro_semana  > img {
 
 @media all and (max-width:488px) {
 	body > div.wrapper#hoja {
-		color: pink;
 		background:rgba(0,0,0,0.3);
 	}
 	
@@ -173,7 +167,6 @@ div#libro_semana  > img {
 
 @media all and (max-width:408px) {
 	body > div.wrapper#hoja {
-		color: aqua;
 		background:rgba(0,0,0,0.3);
 	}
 	
@@ -192,7 +185,6 @@ div#libro_semana  > img {
 
 @media all and (max-width:362px) {
 	body > div.wrapper#hoja {
-		color: orange;
 		background:rgba(0,0,0,0.3);
 	}
 }
@@ -200,5 +192,49 @@ div#libro_semana  > img {
 @media all and (max-width: 264px) {
 	div#inicio > section.posts > div.post > div.contenido_post > div.post_txt > h1 {
 		font-size: 18px;
+	}
+}
+
+@media screen and (max-device-width:500px) and (orientation : portrait){
+	.posts {
+		padding: 0% 0% 0% 0%;
+	}
+	
+	div.post {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	
+	.contenido_post > div.post_txt {
+		padding-left: 2%;
+	}
+	
+	div#inicio > section.posts > div.post > div.contenido_post > div.post_txt > h1 {
+		font-size: 5em;
+	}
+	
+	div#ultimasPublicaciones, div#librosRecomendados {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	div#ultimasPublicaciones > div.libroPubli, div#librosRecomendados > div.libroPubli {
+		flex-basis: 33%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 10px;
+	}
+	
+	div#inicio > section.posts > div.post > div.contenido_post > div#libro_semana > img {
+		flex-basis: 0%;
+		max-width: 16em;
+		min-height: 30em;
+	}
+	div#inicio > section.posts > div.post > div.contenido_post > div#libro_semana > div.resumenLibSemana > h2 {
+		font-size: 6em;
+	}
+	
+	div#inicio > section.posts > div.post > div.contenido_post > div#libro_semana > div.resumenLibSemana > p {
+		font-size: 4em;
 	}
 }

@@ -9,7 +9,7 @@
 		
 		<div class="contenido_post">
 			<div class="post_txt">
-				<h1>ULTIMAS PUBLICACIONES</h1>
+				<h1>ÚLTIMAS PUBLICACIONES</h1>
 			</div>
 			<div id="ultimasPublicaciones"></div>
 		</div>

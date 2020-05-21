@@ -11,7 +11,7 @@ class ConectaBD{
 	private static $instance = NULL;
 	
 	private function __construct(){
-		$this->archivo =  "../../basededatos/biblioteca.conf"; 
+		$this->archivo = __DIR__ . "/../../basededatos/biblioteca.conf"; 
 
 		$this->contenido = parse_ini_file( $this->archivo, true); 
 		$this->bd= $this->contenido["bd"];

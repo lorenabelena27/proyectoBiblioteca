@@ -2,8 +2,10 @@
 include_once '../../conexion/ConectaBD.php';
 
 include_once 'funciones.php';
+//datos que le envia js
 $peticion=json_decode($_POST['x']);
 $tamanio=12;
+//dependiendo de los datos que recibe se llama a una funcio o a otra
 if(isset($peticion->pag)){
 	$pag = $peticion->pag;
 	json_encode(pagina($pag,$tamanio));	

@@ -1,5 +1,5 @@
 <?php
-
+//conexio con la base de datos
 class ConectaBD{
 	private $archivo;
 	private $contenido;

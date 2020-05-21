@@ -1,3 +1,4 @@
+//variables globales
 var libros;
 var total_libros;
 var pagina;
@@ -5,6 +6,7 @@ var okCategorias=false;
 var listaFiltro = false;
 var gen;
 document.addEventListener("readystatechange",cargarEvento,false);
+//se cargan los eventos y se llama a las funciones
 function cargarEvento(){
 	if(document.readyState=="interactive"){
 		document.getElementById("volver").addEventListener("click",volver,false);
@@ -14,12 +16,13 @@ function cargarEvento(){
 		cargarPaginacion();
 	}
 }
+//se carga la paginacion
 function cargarPaginacion(){
 	for(var i=0;i<document.getElementsByClassName("pagina").length;i++){
 		document.getElementsByClassName("pagina")[i].addEventListener("click",mostrarPagina,false);
 	}
 }
-
+//se hace la peticion a php para los libros
 function listarLibros(){
 	var peticion=new XMLHttpRequest();
 	peticion.addEventListener("readystatechange",gestionarListado,false);
@@ -28,28 +31,34 @@ function listarLibros(){
 	var datos = "x= ";
 	peticion.send(datos);
 }
+//se gestiona la respuesta
 function gestionarListado(evento){
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
 		respuesta = JSON.parse(evento.target.responseText);
 		respuestaLibros(respuesta);
     }
 }
+//respuesta de los libros
 function respuestaLibros(respuesta){
+	//
 	if(respuesta.length == 2 && typeof(respuesta[0]) == "string"){
 		total_libros = respuesta[0];
 		libros = respuesta[1];
 	}else{
 		libros = respuesta;
 	}
+	//se ordenan los libros
 	libros.sort(function(a,b){ return (a["titulo"] - b["titulo"])});
+	//se saca el total de paginas 
 	var total_pag = Math.ceil(total_libros/12);
 	document.getElementById("libros").innerHTML="";	
+	//se muestra la informacion de los libros y su portada
 	for(var i=0;i<libros.length;i++){
 		var div=document.createElement("div");
 		div.setAttribute("class","libro");
 		var img=document.createElement("div");
 		var img2=document.createElement("img");
-		img2.setAttribute("src","imgLibros/"+libros[i]["img"]+".jpg");
+		img2.setAttribute("src","imgLibros/"+libros[i]["img"].toLowerCase()+".jpg");
 		
 		var infoLibro=document.createElement("div");
 		infoLibro.setAttribute("class","lado atras");
@@ -73,7 +82,9 @@ function respuestaLibros(respuesta){
 		var spanCodigo = document.createElement("span");
 		spanCodigo.setAttribute("class","oculto");
 		spanCodigo.innerHTML = libros[i]["cod_libro"];
+		
 		img.appendChild(img2);
+		//se añade los span con la informacion a div padre
 		div.appendChild(img);
 		div.appendChild(infoLibro);
 		div.appendChild(spanAnio);
@@ -83,9 +94,11 @@ function respuestaLibros(respuesta){
 		div.appendChild(spanCodigo);
 		document.getElementById("libros").appendChild(div);
 	}
+	//borra la paginacion si exsiste 
 	while(document.getElementById("paginacion").hasChildNodes()){
 		document.getElementById("paginacion").removeChild(document.getElementById("paginacion").firstChild);
 	}
+	//las clases que van a tener los numeros de la paginacion dependiendo si es de listar libros o del menu de filtros
 	var clase="pagina";
 	if(listaFiltro==true){
 		clase="paginaFiltro";
@@ -132,7 +145,7 @@ function respuestaLibros(respuesta){
 	fichaTecnica();
 	
 }
-
+//se hace a peticion para la paginacion
 function mostrarPagina(){
 	pagina = parseInt(this.innerHTML);
 	var pagi = parseInt(this.innerHTML);
@@ -145,22 +158,23 @@ function mostrarPagina(){
 	var datos = "x="+myobj;
 	peticion.send(datos);
 }
-
+//se gestiona la respuesta
 function gestionarPagina(evento){
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
 		respuesta = JSON.parse(evento.target.responseText);
 		respuestaLibros(respuesta);
     }
 }
-
+//se añade el evento a la ficha tecnica para despues mostrarla
 function fichaTecnica(){
 	for(var i=0;i<document.getElementsByClassName("fichaTecnica").length;i++){
 		document.getElementsByClassName("fichaTecnica")[i].addEventListener("click",mostrarFT,false);
 	}
 }
-
+//muestra la ficha tecnica
 function mostrarFT(){
 	document.getElementById("estadoLibro").style.display="none";
+	//ruta de la imagen
 	var ruta = this.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
 	var titulo=this.parentNode.firstChild.innerHTML;
 	var autor=this.parentNode.firstChild.nextSibling.innerHTML;
@@ -184,13 +198,13 @@ function mostrarFT(){
 	document.getElementById("volverI").style.display="none";
 	
 }
-
+//cerrar ficha tecnica
 function volver(){
 	document.getElementById("info").style.display="none";
 	document.getElementById("libros_listar").style.display="block";
 	document.getElementById("paginacion").style.display="flex";	
 }
-
+//mostrar el menu de filtros
 function mostrarFiltros(){
 
 	if(document.getElementById("menuFiltros").className=="vertical-oculto"){
@@ -202,11 +216,9 @@ function mostrarFiltros(){
 	}
 
 }
-
+//si el menu esta oculto lo muestra y si no lo oculta
 function a(){
-	let element = document.getElementsByClassName('libro')[0];
-	let elementStyle = window.getComputedStyle(element);
-	let elementColor = elementStyle.getPropertyValue('flex-basis');
+	//y el elemento que tiene el contenido cambia la clase
 	if(document.getElementById("menuFiltros").className=="vertical-oculto"){
 		document.getElementById("menuFiltros").className="vertical-menu";
 		document.getElementById("libros_listar").className="conFiltro";
@@ -214,7 +226,7 @@ function a(){
 		document.getElementById("menuFiltros").className="vertical-oculto";
 		document.getElementById("libros_listar").className="sinFiltro";
 	}
-	
+	//cambia la distribucion de div libros
 	if(document.getElementById("libros").style.justifyContent=="space-evenly"){
 		document.getElementById("libros").style.justifyContent="center";
 	}else{
@@ -222,7 +234,7 @@ function a(){
 	}
 	
 }
-
+//si el menu esta oculto le pone el ancho para cuando se ejecute la funcion "a" se muestre todo  y si no pone el ancho a 0
 function b(){
 	if(document.getElementById("menuFiltros").className=="vertical-oculto"){
 		document.getElementById("menuFiltros").style.width="15%";
@@ -230,6 +242,7 @@ function b(){
 		document.getElementById("menuFiltros").style.width="0%";
 	}
 }
+//peticion a php para saber las categorias
 function cargarCategorias(){
 	if(okCategorias==false){
 		var categoria=true;
@@ -244,12 +257,14 @@ function cargarCategorias(){
 	}
 	
 }
+//gestiona la respuesta
 function gestionarCategorias(evento){
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
 		respuesta = JSON.parse(evento.target.responseText);
 		mostrarCategorias(respuesta);
     }
 }
+//muesta las categorias
 function mostrarCategorias(respuesta){
 	okCategorias = true;
 	while(document.getElementById("menuFiltros").firstChild.innerHTML != document.getElementById("menuFiltros").lastChild.innerHTML){
@@ -265,6 +280,7 @@ function mostrarCategorias(respuesta){
 			document.getElementsByClassName("categoria")[i].addEventListener("click",cargarLibrosCT,false);
 	}	
 }
+//peticion a php para mostrar los libros de una categoria
 function cargarLibrosCT(){
 	gen =this.innerHTML;
 	var myobj={catego:gen};
@@ -276,23 +292,25 @@ function cargarLibrosCT(){
 	var datos = "x="+myobj;
 	peticion.send(datos);
 }
+//gestiona la respuesta
 function gestionarLibrosCT(evento){
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
 		respuesta = JSON.parse(evento.target.responseText);
 		mostrarLibrosCT(respuesta);
     }
 }
+//llama a la funcion respuesta libros pasandole los libros de la categoria de la peticion
 function mostrarLibrosCT(respuesta){
 	listaFiltro=true;
 	respuestaLibros(respuesta);
 }
-
+//carga el evento de mostrar los libros de la pagina correspondiente
 function cargarPaginacionFiltro(){
 	for(var i=0;i<document.getElementsByClassName("paginaFiltro").length;i++){
 		document.getElementsByClassName("paginaFiltro")[i].addEventListener("click",mostrarPaginaFiltro,false);
 	}
 }
-
+//peticion a php para cargar los libros de la pag selecionada
 function mostrarPaginaFiltro(){
 	pagina = parseInt(this.innerHTML);
 	var pagi = parseInt(this.innerHTML);

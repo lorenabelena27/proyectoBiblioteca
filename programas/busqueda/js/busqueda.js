@@ -1,6 +1,7 @@
+//variable donde se guardara la respuesta
 var libros;
 document.addEventListener("readystatechange",cargarEvento,false);
-
+//se carga los eventos 
 function cargarEvento(){
 	
 	if(document.readyState=="interactive"){
@@ -10,8 +11,9 @@ function cargarEvento(){
 		document.getElementById("botonMenu").addEventListener("click",menuDesplegable,false);
 	}
 }
+//funcion para hacer la peticion a php
 function busqueda(){
-	
+	//se comprueba los datos
 	var todoBien=false;
 	var dato=document.getElementById("id_libro").value;
 	if(dato==" " || dato==""){
@@ -19,6 +21,7 @@ function busqueda(){
 	}else{
 		todoBien=true;
 	}
+	//si los datos estan bien se realiza la petición
 	if(todoBien==true){
 		document.getElementById("error_busq").innerHTML="";
 		var myobj={dato:dato}
@@ -32,6 +35,7 @@ function busqueda(){
 	}
 	
 }
+//funcion que gestiona la peticion
 function gestionarBusqueda(evento){
 	
 	if (evento.target.readyState == 4 && evento.target.status == 200) {
@@ -39,8 +43,10 @@ function gestionarBusqueda(evento){
 			respuestaBusqueda(respuesta);
         }
 }
+//funcion respuesta
 function respuestaBusqueda(respuesta){
-	
+	//dependiendo de la respuesta se gestiona 
+	//desaparece el inicio , listar libros o mis libros y aparece la busqueda 
 	if(respuesta.length > 0){
 		if(document.getElementById("inicio")){
 			document.getElementById("inicio").style.display="none";
@@ -57,6 +63,7 @@ function respuestaBusqueda(respuesta){
 		document.getElementById("busqueda").style.display="block";
 		mostrarBusqueda();
 	}else{
+		//en este caso es el contrario 
 		if(document.getElementById("inicio")){
 			document.getElementById("inicio").style.display="block";
 		}
@@ -70,7 +77,7 @@ function respuestaBusqueda(respuesta){
 	}
 	document.getElementById("id_libro").value="";
 }
-
+//muestra los datos de la busqueda
 function mostrarBusqueda(){
 	
 	libros = respuesta;
@@ -114,16 +121,16 @@ function mostrarBusqueda(){
 		div.appendChild(spanCodigo);
 		document.getElementById("libros_busqueda").appendChild(div);
 	}
-	
+	//se llama ala funcion ficha tecnica para mostrar los datos del libro
 	fichaTecnicaB();
 }
-
+//funcion carga el evento del enlace de la ficha tecnica
 function fichaTecnicaB(){
 	for(var i=0;i<document.getElementsByClassName("fichaTecnica").length;i++){
 		document.getElementsByClassName("fichaTecnica")[i].addEventListener("click",mostrarFTB,false);
 	}
 }
-
+//muestra la ficha tecnica
 function mostrarFTB(){
 	
 	document.getElementById("estadoLibro").style.display="none";

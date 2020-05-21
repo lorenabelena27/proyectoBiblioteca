@@ -7,6 +7,7 @@ header("Pragma: no-cache");
 include_once 'funciones.php';
 $peticion=json_decode($_POST['x']);
 $dni=$_SESSION["dni"];
+//llama a la funcion
 misLibros($dni);
 
 
