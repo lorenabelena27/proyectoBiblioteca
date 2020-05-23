@@ -119,7 +119,8 @@ class ConectaBD{
 				"fecha date DEFAULT NULL, " .
 				"fecha_fin date DEFAULT NULL, " .
 				"primary key (id_reserva), " .
-				"foreign key(dni) references usuarios(dni))ENGINE = MYISAM DEFAULT CHARSET=utf8mb4;" ;
+				"foreign key(dni) references usuarios(dni)".
+				"foreign key(codigo) references libros(cod_libro)")ENGINE = MYISAM DEFAULT CHARSET=utf8mb4;" ;
 		if(!$this->db->query($sql)){
 			echo "ERROR: La tabla \"Lista_espera\" ya existe o no se ha podido crear.<br>";
 		}else{
