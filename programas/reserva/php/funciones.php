@@ -87,7 +87,7 @@ function reserva($dni,$codigo){
 										}
 										
 									}else{
-										/
+										
 										//SI
 									//SELECT DE LA FECHA DE LA ULTIMA RESERVA (FECHA Y COUNT)
 									//$fecha = fecha de la ultima reserva

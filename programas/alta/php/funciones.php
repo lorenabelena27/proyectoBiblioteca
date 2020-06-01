@@ -46,7 +46,7 @@ function validaDni($dni){
 }
 //validacion del nombre
 function validaNom($nombre){
-	$patronPass="/^[a-zA-Z]$/";
+	$patronPass="/^[a-zA-Z]+$/";
 	if(preg_match($patronPass,$nombre)==false){
 		return false;
 	}else{

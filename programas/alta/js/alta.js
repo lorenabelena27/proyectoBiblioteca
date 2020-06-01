@@ -64,7 +64,7 @@ function validaPass(contrasena){
 //vaidacion del nombre
 function validaNom(nombre){
 	
-	var patronPass=/^[a-zA-Z]$/
+	var patronPass=/^[a-zA-Z]+$/
 	if(patronPass.test(nombre)==false){
 		return false;
 	}
@@ -104,7 +104,7 @@ function peticionAlta(){
 		document.getElementById("div_error_nombre").className ="error";
 		document.getElementById("div_error_nombre").style.diplay="block";
 		p1.innerHTML=error;
-	else{
+	}else{
 		p1.innerHTML="";
 		document.getElementById("div_error_apellidos").className ="ocultar";
 		todoBien=true;

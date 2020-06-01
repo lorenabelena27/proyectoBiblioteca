@@ -1,4 +1,21 @@
 <?php
+//validación del dni
+function validaDni($dni){
+	$patron="/^[0-9]{8}[A-Za-z]{1}$/"; 
+	if (preg_match($patron,$dni)==true){ 
+		$numero=substr($dni,0,8); 
+		$letras="TRWAGMYFPDXBNJZSQVHLCKE"; 
+		$letrasM="trwagmyfpdxbnjzsqvhlcke"; 
+		$resto=intval($numero)%23;	
+		if ((strcmp($dni[8],$letras[$resto])!=0) && (strcmp($dni[8],$letrasM[$resto])!=0)){
+			return "dni no valido";	
+		}else{
+			return "dni valido";
+		}
+	}else { 
+		return false;
+	}
+}
 function pedir($dni,$codigo){
 	$con= ConectaBD::getInstance();
 	//comprobar que el usuario existe

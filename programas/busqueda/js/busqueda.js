@@ -60,6 +60,9 @@ function respuestaBusqueda(respuesta){
 			document.getElementById("misLibros").style.display="none";
 		}
 		
+		if(document.getElementById("info")){
+			document.getElementById("info").style.display="none";
+		}
 		document.getElementById("busqueda").style.display="block";
 		mostrarBusqueda();
 	}else{
@@ -162,7 +165,7 @@ function volverB(){
 	document.getElementById("busqueda").style.display="block";
 	
 }
-
+//cierra lo que ha mostrado la busqueda y muestra la pagina donde se encuentra el usuario
 function cerrarBusqueda(){
 	
 	document.getElementById("busqueda").style.display=" none";
@@ -175,7 +178,7 @@ function cerrarBusqueda(){
 	}
 	
 	if(document.getElementById("misLibros")){
-			document.getElementById("misLibros").style.display="block";
+			document.getElementById("misLibros").style.display="flex";
 		}
 }
 
